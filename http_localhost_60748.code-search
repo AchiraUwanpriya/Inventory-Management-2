@@ -1,0 +1,55 @@
+# Query: http://localhost:60748
+# ContextLines: 1
+
+12 results - 3 files
+
+vite.config.js:
+   8        "/Products": {
+   9:         target: "https://inventorybackend.dockyardsoftware.com",
+  10          changeOrigin: true,
+
+  13        "/Customers": {
+  14:         target: "https://inventorybackend.dockyardsoftware.com",
+  15          changeOrigin: true,
+
+  18        "/Categories": {
+  19:         target: "https://inventorybackend.dockyardsoftware.com",
+  20          changeOrigin: true,
+
+  23        '/Units': {
+  24:         target: 'https://inventorybackend.dockyardsoftware.com',
+  25          changeOrigin: true,
+
+  28        "/PurchaseOrders": {
+  29:         target: "https://inventorybackend.dockyardsoftware.com",
+  30          changeOrigin: true,
+
+  33        "/Suppliers": {
+  34:         target: "https://inventorybackend.dockyardsoftware.com",
+  35          changeOrigin: true,
+
+  38        "/PurchaseOrderItems": {
+  39:         target: "https://inventorybackend.dockyardsoftware.com",
+  40          changeOrigin: true,
+
+  43        "/SalesOrders": {
+  44:         target: "https://inventorybackend.dockyardsoftware.com",
+  45          changeOrigin: true,
+
+  48        "/SalesOrderItems": {
+  49:         target: "https://inventorybackend.dockyardsoftware.com",
+  50          changeOrigin: true,
+
+  53        "/StockTransactions": {
+  54:         target: "https://inventorybackend.dockyardsoftware.com",
+  55          changeOrigin: true,
+
+src\index.js:
+  7  // :white_check_mark: Set base URL globally for axios
+  8: axios.defaults.baseURL = "https://inventorybackend.dockyardsoftware.com";
+  9  const root = ReactDOM.createRoot(document.getElementById('root'));
+
+src\Services\authservice.jsx:
+  3  
+  4: // const API_BASE_URL = "https://inventorybackend.dockyardsoftware.com"; // Your backend URL
+  5  
