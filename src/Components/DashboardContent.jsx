@@ -10,6 +10,11 @@ import SalesOrders from './dashboard/SalesOrders'
 import SalesOrderItems from './dashboard/SalesOrderItems'
 import StockTransactions from './dashboard/StockTransactions'
 import GoodsReceivedNotes from './dashboard/GoodsReceivedNotes'
+import SRN from './dashboard/SRN'
+import DMG from './dashboard/DMG'
+import SAJ from './dashboard/SAJ'
+import STR from './dashboard/STR'
+import ISS from './dashboard/ISS'
 
 
 const DashboardContent = ({ activeTab }) => {
@@ -39,6 +44,16 @@ const DashboardContent = ({ activeTab }) => {
         return <StockTransactions />
       case 'goods-received-notes':
         return <GoodsReceivedNotes />
+      case 'srn':
+        return <SRN />
+      case 'dmg':
+        return <DMG />
+      case 'saj':
+        return <SAJ />
+      case 'str':
+        return <STR />
+      case 'iss':
+        return <ISS />
    
       default:
         return <Overview />

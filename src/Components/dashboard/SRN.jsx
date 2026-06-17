@@ -1154,7 +1154,7 @@ import {
 } from "../../Actions/actionsStockTransactions";
 import { GetAllProducts } from "../../Actions/actionsProducts";
 
-const GoodsReceivedNotes = () => {
+const SRN = () => {
   const dispatch = useDispatch();
 
   // Redux state
@@ -1293,7 +1293,7 @@ const GoodsReceivedNotes = () => {
 
   // Fetch transactions & products on mount
   useEffect(() => {
-    dispatch(GetStockTransactionsByFormType('GRN'));
+    dispatch(GetStockTransactionsByFormType('SRN'));
     dispatch(GetAllProducts());
   }, [dispatch]);
 
@@ -1419,9 +1419,9 @@ const GoodsReceivedNotes = () => {
       ...formTransaction,
       TransactionID: formTransaction.TransactionID,
       Quantity: Number(formTransaction.Quantity),
-      TransactionType: "IN",
-      OrderItemType: "PO",
-      FormTypeID: 1,
+      TransactionType: "OUT",
+      OrderItemType: "SO",
+      FormTypeID: 2,
       TransactiionDate: formTransaction.TransactionDate || new Date().toISOString().split('T')[0],
     };
 
@@ -1429,13 +1429,13 @@ const GoodsReceivedNotes = () => {
       if (editingTransactionID) {
         await dispatch(PutStockTransactionsDetails(payload));
         setEditingTransactionID(null);
-        showPopupMessage("✅ GRN updated successfully!");
+        showPopupMessage("✅ SRN updated successfully!");
       } else {
         await dispatch(AddStockTransactionsDetails(payload));
-        showPopupMessage("✅ GRN added successfully!");
+        showPopupMessage("✅ SRN added successfully!");
       }
 
-      await dispatch(GetStockTransactionsByFormType('GRN'));
+      await dispatch(GetStockTransactionsByFormType('SRN'));
 
       setFormTransaction({
         TransactionID: "",
@@ -1450,8 +1450,8 @@ const GoodsReceivedNotes = () => {
       setShowForm(false);
       setIsSubmitting(false);
     } catch (err) {
-      console.error("❌ Failed to save GRN", err);
-      showPopupMessage("❌ Failed to save GRN!", true);
+      console.error("❌ Failed to save SRN", err);
+      showPopupMessage("❌ Failed to save SRN!", true);
       setIsSubmitting(false);
     }
   };
@@ -1477,7 +1477,7 @@ const GoodsReceivedNotes = () => {
       await dispatch(PutStockTransactionsDetails(payload));
       
       // Refresh the data from server to ensure consistency
-      await dispatch(GetStockTransactionsByFormType('GRN'));
+      await dispatch(GetStockTransactionsByFormType('SRN'));
 
       showPopupMessage(`✅ Transaction ${updatedStatus.toLowerCase()} successfully!`);
     } catch (error) {
@@ -1485,7 +1485,7 @@ const GoodsReceivedNotes = () => {
       showPopupMessage("❌ Failed to update status!", true);
       
       // Revert the UI by refreshing data
-      dispatch(GetStockTransactionsByFormType('GRN'));
+      dispatch(GetStockTransactionsByFormType('SRN'));
     }
   };
 
@@ -1543,7 +1543,7 @@ const GoodsReceivedNotes = () => {
 
         {/* Page info */}
         <div style={styles.pageInfo}>
-          Showing {indexOfFirstItem + 1}-{Math.min(indexOfLastItem, filteredTransactions.length)} of {filteredTransactions.length} Goods Received Notes
+          Showing {indexOfFirstItem + 1}-{Math.min(indexOfLastItem, filteredTransactions.length)} of {filteredTransactions.length} Stock Return Notes
         </div>
 
         {/* Pagination controls */}
@@ -2090,7 +2090,7 @@ const GoodsReceivedNotes = () => {
     return (
       <div style={styles.container}>
         <div style={{textAlign: 'center', padding: '40px', color: colors.gray}}>
-          Loading Goods Received Notes...
+          Loading Stock Return Notes...
         </div>
       </div>
     );
@@ -2125,7 +2125,7 @@ const GoodsReceivedNotes = () => {
         <div style={styles.headerContent}>
           <Truck size={isMobile ? 36 : 52} color={colors.white} />
           <div style={{flex: 1}}>
-            <h1 style={styles.pageTitle}>GOODS RECEIVED NOTES (GRN)</h1>
+            <h1 style={styles.pageTitle}>STOCK RETURN NOTES (SRN)</h1>
             <p style={styles.pageSubtitle}>Manage and track goods received into inventory</p>
           </div>
           <button 
@@ -2151,7 +2151,7 @@ const GoodsReceivedNotes = () => {
           }}
         >
           <p style={styles.statNumber}>{totalTransactions}</p>
-          <p style={styles.statLabel}>TOTAL GRNS</p>
+          <p style={styles.statLabel}>TOTAL SRNS</p>
         </div>
         <div 
           style={{
@@ -2195,7 +2195,7 @@ const GoodsReceivedNotes = () => {
           <Search size={isMobile ? 20 : 24} style={styles.searchIcon} />
           <input
             type="text"
-            placeholder="Search GRNs by ID, product, or reference..."
+            placeholder="Search SRNs by ID, product, or reference..."
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
             style={styles.searchInput}
@@ -2294,7 +2294,7 @@ const GoodsReceivedNotes = () => {
           }}
           disabled={isSubmitting}
         >
-          <Plus size={isMobile ? 20 : 24} /> Add GRN
+          <Plus size={isMobile ? 20 : 24} /> Add SRN
         </button>
       </div>
 
@@ -2310,7 +2310,7 @@ const GoodsReceivedNotes = () => {
           }}>
             <div style={styles.modalHeader}>
               <h3 style={styles.modalTitle}>
-                {editingTransactionID ? "EDIT GOODS RECEIVED NOTE" : "ADD NEW GOODS RECEIVED NOTE"}
+                {editingTransactionID ? "EDIT STOCK RETURN NOTE" : "ADD NEW STOCK RETURN NOTE"}
               </h3>
               <button 
                 style={styles.closeButton}
@@ -2343,7 +2343,7 @@ const GoodsReceivedNotes = () => {
                   {/* Left Column */}
                   <div>
                     <div style={styles.formGroup}>
-                      <label style={styles.label}>GRN ID</label>
+                      <label style={styles.label}>SRN ID</label>
                       <input 
                         type="text" 
                         value={formTransaction.TransactionID} 
@@ -2426,7 +2426,7 @@ const GoodsReceivedNotes = () => {
 
 
                     <div style={styles.formGroup}>
-                      <label style={styles.label}>GRN Date *</label>
+                      <label style={styles.label}>SRN Date *</label>
                       <input
                         type="date"
                         value={formTransaction.TransactionDate}
@@ -2504,7 +2504,7 @@ const GoodsReceivedNotes = () => {
                     }}
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Saving..." : (editingTransactionID ? "Update GRN" : "Add GRN")}
+                    {isSubmitting ? "Saving..." : (editingTransactionID ? "Update SRN" : "Add SRN")}
                   </button>
                 </div>
               </form>
@@ -2518,7 +2518,7 @@ const GoodsReceivedNotes = () => {
         <table style={styles.table}>
           <thead style={styles.tableHeader}>
             <tr>
-              <th style={styles.tableHeaderCell}>GRN ID</th>
+              <th style={styles.tableHeaderCell}>SRN ID</th>
               <th style={styles.tableHeaderCell}>Product Name</th>
               <th style={styles.tableHeaderCell}>Quantity</th>
               <th style={styles.tableHeaderCell}>Balance Quantity</th>
@@ -2533,7 +2533,7 @@ const GoodsReceivedNotes = () => {
                 <td colSpan={7} style={{...styles.tableCell, textAlign: 'center', padding: isMobile ? '40px' : '60px'}}>
                   <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', color: colors.gray}}>
                     <Package size={isMobile ? 48 : 72} color={colors.grayLight} />
-                    <p style={{fontSize: isMobile ? '18px' : '20px', margin: 0, fontWeight: '700', color: colors.grayDark}}>No Goods Received Notes found</p>
+                    <p style={{fontSize: isMobile ? '18px' : '20px', margin: 0, fontWeight: '700', color: colors.grayDark}}>No Stock Return Notes found</p>
                     <p style={{fontSize: isMobile ? '12px' : '14px', margin: 0}}>Try adjusting your search criteria or filters</p>
                   </div>
                 </td>
@@ -2635,4 +2635,4 @@ const GoodsReceivedNotes = () => {
   );
 };
 
-export default GoodsReceivedNotes;
+export default SRN;
