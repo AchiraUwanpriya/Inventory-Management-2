@@ -1148,17 +1148,17 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Plus, Search, X, Package, ArrowUpCircle, ArrowDownCircle, Calendar, Truck, Menu, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
 import {
-  GetAllStockTransactions,
+  GetStockTransactionsByFormType,
   AddStockTransactionsDetails,
   PutStockTransactionsDetails,
 } from "../../Actions/actionsStockTransactions";
 import { GetAllProducts } from "../../Actions/actionsProducts";
 
-const StockTransactions = () => {
+const GoodsReceivedNotes = () => {
   const dispatch = useDispatch();
 
   // Redux state
-  const stockTransactionsState = useSelector((state) => state.stockTransactions);
+  const stockTransactionsState = useSelector((state) => state.grnTransactions);
   const productsState = useSelector((state) => state.products);
 
   const transactions = stockTransactionsState?.responseBody || [];
@@ -1293,7 +1293,7 @@ const StockTransactions = () => {
 
   // Fetch transactions & products on mount
   useEffect(() => {
-    dispatch(GetAllStockTransactions());
+    dispatch(GetStockTransactionsByFormType('GRN'));
     dispatch(GetAllProducts());
   }, [dispatch]);
 
@@ -1419,6 +1419,9 @@ const StockTransactions = () => {
       ...formTransaction,
       TransactionID: formTransaction.TransactionID,
       Quantity: Number(formTransaction.Quantity),
+      TransactionType: "IN",
+      OrderItemType: "PO",
+      FormTypeID: 1,
       TransactiionDate: formTransaction.TransactionDate || new Date().toISOString().split('T')[0],
     };
 
@@ -1426,13 +1429,13 @@ const StockTransactions = () => {
       if (editingTransactionID) {
         await dispatch(PutStockTransactionsDetails(payload));
         setEditingTransactionID(null);
-        showPopupMessage("✅ Transaction updated successfully!");
+        showPopupMessage("✅ GRN updated successfully!");
       } else {
         await dispatch(AddStockTransactionsDetails(payload));
-        showPopupMessage("✅ Transaction added successfully!");
+        showPopupMessage("✅ GRN added successfully!");
       }
 
-      await dispatch(GetAllStockTransactions());
+      await dispatch(GetStockTransactionsByFormType('GRN'));
 
       setFormTransaction({
         TransactionID: "",
@@ -1447,8 +1450,8 @@ const StockTransactions = () => {
       setShowForm(false);
       setIsSubmitting(false);
     } catch (err) {
-      console.error("❌ Failed to save transaction", err);
-      showPopupMessage("❌ Failed to save transaction!", true);
+      console.error("❌ Failed to save GRN", err);
+      showPopupMessage("❌ Failed to save GRN!", true);
       setIsSubmitting(false);
     }
   };
@@ -1474,7 +1477,7 @@ const StockTransactions = () => {
       await dispatch(PutStockTransactionsDetails(payload));
       
       // Refresh the data from server to ensure consistency
-      await dispatch(GetAllStockTransactions());
+      await dispatch(GetStockTransactionsByFormType('GRN'));
 
       showPopupMessage(`✅ Transaction ${updatedStatus.toLowerCase()} successfully!`);
     } catch (error) {
@@ -1482,7 +1485,7 @@ const StockTransactions = () => {
       showPopupMessage("❌ Failed to update status!", true);
       
       // Revert the UI by refreshing data
-      dispatch(GetAllStockTransactions());
+      dispatch(GetStockTransactionsByFormType('GRN'));
     }
   };
 
@@ -1540,7 +1543,7 @@ const StockTransactions = () => {
 
         {/* Page info */}
         <div style={styles.pageInfo}>
-          Showing {indexOfFirstItem + 1}-{Math.min(indexOfLastItem, filteredTransactions.length)} of {filteredTransactions.length} transactions
+          Showing {indexOfFirstItem + 1}-{Math.min(indexOfLastItem, filteredTransactions.length)} of {filteredTransactions.length} Goods Received Notes
         </div>
 
         {/* Pagination controls */}
@@ -2087,7 +2090,7 @@ const StockTransactions = () => {
     return (
       <div style={styles.container}>
         <div style={{textAlign: 'center', padding: '40px', color: colors.gray}}>
-          Loading transactions...
+          Loading Goods Received Notes...
         </div>
       </div>
     );
@@ -2122,8 +2125,8 @@ const StockTransactions = () => {
         <div style={styles.headerContent}>
           <Truck size={isMobile ? 36 : 52} color={colors.white} />
           <div style={{flex: 1}}>
-            <h1 style={styles.pageTitle}>STOCK TRANSACTIONS MANAGEMENT</h1>
-            <p style={styles.pageSubtitle}>Manage and track all stock movements and inventory transactions</p>
+            <h1 style={styles.pageTitle}>GOODS RECEIVED NOTES (GRN)</h1>
+            <p style={styles.pageSubtitle}>Manage and track goods received into inventory</p>
           </div>
           <button 
             style={styles.mobileMenuButton}
@@ -2148,7 +2151,7 @@ const StockTransactions = () => {
           }}
         >
           <p style={styles.statNumber}>{totalTransactions}</p>
-          <p style={styles.statLabel}>TOTAL TRANSACTIONS</p>
+          <p style={styles.statLabel}>TOTAL GRNS</p>
         </div>
         <div 
           style={{
@@ -2192,7 +2195,7 @@ const StockTransactions = () => {
           <Search size={isMobile ? 20 : 24} style={styles.searchIcon} />
           <input
             type="text"
-            placeholder="Search transactions by ID, product, or reference..."
+            placeholder="Search GRNs by ID, product, or reference..."
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
             style={styles.searchInput}
@@ -2291,7 +2294,7 @@ const StockTransactions = () => {
           }}
           disabled={isSubmitting}
         >
-          <Plus size={isMobile ? 20 : 24} /> Add Transaction
+          <Plus size={isMobile ? 20 : 24} /> Add GRN
         </button>
       </div>
 
@@ -2307,7 +2310,7 @@ const StockTransactions = () => {
           }}>
             <div style={styles.modalHeader}>
               <h3 style={styles.modalTitle}>
-                {editingTransactionID ? "EDIT TRANSACTION" : "ADD NEW TRANSACTION"}
+                {editingTransactionID ? "EDIT GOODS RECEIVED NOTE" : "ADD NEW GOODS RECEIVED NOTE"}
               </h3>
               <button 
                 style={styles.closeButton}
@@ -2340,7 +2343,7 @@ const StockTransactions = () => {
                   {/* Left Column */}
                   <div>
                     <div style={styles.formGroup}>
-                      <label style={styles.label}>Transaction ID</label>
+                      <label style={styles.label}>GRN ID</label>
                       <input 
                         type="text" 
                         value={formTransaction.TransactionID} 
@@ -2397,25 +2400,7 @@ const StockTransactions = () => {
 
                   {/* Right Column */}
                   <div>
-                    <div style={styles.formGroup}>
-                      <label style={styles.label}>Transaction Type</label>
-                      <select
-                        value={formTransaction.TransactionType}
-                        onChange={(e) => setFormTransaction({ ...formTransaction, TransactionType: e.target.value })}
-                        style={{
-                          ...styles.select,
-                          background: formTransaction.TransactionType === 'IN' ? 
-                            `linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)` : 
-                            `linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)`,
-                          borderColor: formTransaction.TransactionType === 'IN' ? colors.success : colors.warning,
-                          color: colors.dark
-                        }}
-                        disabled={isSubmitting}
-                      >
-                        <option value="IN">Stock In</option>
-                        <option value="OUT">Stock Out</option>
-                      </select>
-                    </div>
+
 
                     <div style={styles.formGroup}>
                       <label style={styles.label}>User ID *</label>
@@ -2441,7 +2426,7 @@ const StockTransactions = () => {
 
 
                     <div style={styles.formGroup}>
-                      <label style={styles.label}>Transaction Date *</label>
+                      <label style={styles.label}>GRN Date *</label>
                       <input
                         type="date"
                         value={formTransaction.TransactionDate}
@@ -2519,7 +2504,7 @@ const StockTransactions = () => {
                     }}
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Saving..." : (editingTransactionID ? "Update Transaction" : "Add Transaction")}
+                    {isSubmitting ? "Saving..." : (editingTransactionID ? "Update GRN" : "Add GRN")}
                   </button>
                 </div>
               </form>
@@ -2533,7 +2518,7 @@ const StockTransactions = () => {
         <table style={styles.table}>
           <thead style={styles.tableHeader}>
             <tr>
-              <th style={styles.tableHeaderCell}>Transaction ID</th>
+              <th style={styles.tableHeaderCell}>GRN ID</th>
               <th style={styles.tableHeaderCell}>Product Name</th>
               <th style={styles.tableHeaderCell}>Quantity</th>
               <th style={styles.tableHeaderCell}>Balance Quantity</th>
@@ -2548,7 +2533,7 @@ const StockTransactions = () => {
                 <td colSpan={7} style={{...styles.tableCell, textAlign: 'center', padding: isMobile ? '40px' : '60px'}}>
                   <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', color: colors.gray}}>
                     <Package size={isMobile ? 48 : 72} color={colors.grayLight} />
-                    <p style={{fontSize: isMobile ? '18px' : '20px', margin: 0, fontWeight: '700', color: colors.grayDark}}>No transactions found</p>
+                    <p style={{fontSize: isMobile ? '18px' : '20px', margin: 0, fontWeight: '700', color: colors.grayDark}}>No Goods Received Notes found</p>
                     <p style={{fontSize: isMobile ? '14px' : '16px', margin: 0}}>Try adjusting your search criteria or filters</p>
                   </div>
                 </td>
@@ -2650,4 +2635,4 @@ const StockTransactions = () => {
   );
 };
 
-export default StockTransactions;
+export default GoodsReceivedNotes;

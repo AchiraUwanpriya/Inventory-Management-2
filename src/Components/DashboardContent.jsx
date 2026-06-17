@@ -9,6 +9,7 @@ import PurchaseOrderItems from './dashboard/PurchaseOrderItems'
 import SalesOrders from './dashboard/SalesOrders'
 import SalesOrderItems from './dashboard/SalesOrderItems'
 import StockTransactions from './dashboard/StockTransactions'
+import GoodsReceivedNotes from './dashboard/GoodsReceivedNotes'
 
 
 const DashboardContent = ({ activeTab }) => {
@@ -36,6 +37,8 @@ const DashboardContent = ({ activeTab }) => {
         return <SalesOrderItems />
       case 'stock-transactions':
         return <StockTransactions />
+      case 'goods-received-notes':
+        return <GoodsReceivedNotes />
    
       default:
         return <Overview />

@@ -82,6 +82,7 @@ import {
   AddStockTransactionsReducer,
   GetStockTransactionsByTransactionIdReducer,
   PutStockTransactionsReducer,
+  GetStockTransactionsByFormTypeReducer,
 } from "./Reducers/reducersStockTransactions";
 
 // ================== Dummy Reducer ==================
@@ -150,6 +151,7 @@ const rootReducer = combineReducers({
   addStockTransactions: AddStockTransactionsReducer,
   stockTransactionsById: GetStockTransactionsByTransactionIdReducer,
   putStockTransactions: PutStockTransactionsReducer,
+  grnTransactions: GetStockTransactionsByFormTypeReducer,
 });
 
 // ================== Store ==================

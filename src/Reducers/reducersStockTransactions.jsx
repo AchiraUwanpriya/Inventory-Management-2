@@ -11,6 +11,9 @@ import {
   PutStockTransactionsDetails_REQUEST,
   PutStockTransactionsDetails_SUCCESS,
   PutStockTransactionsDetails_FAIL,
+  GetStockTransactionsByFormType_REQUEST,
+  GetStockTransactionsByFormType_SUCCESS,
+  GetStockTransactionsByFormType_FAIL,
 } from "../Constants/constantsStockTransactions";
 
 // Separate initial states for each reducer
@@ -40,6 +43,20 @@ export const GetAllStockTransactionsReducer = (state = initialListState, action)
     case GetAllStockTransactions_SUCCESS:
       return { ...state, loading: false, responseBody: action.payload, msg: null };
     case GetAllStockTransactions_FAIL:
+      return { ...state, loading: false, msg: action.payload?.msg || action.payload };
+    default:
+      return state;
+  }
+};
+
+// Get stock transactions by form type
+export const GetStockTransactionsByFormTypeReducer = (state = initialListState, action) => {
+  switch (action.type) {
+    case GetStockTransactionsByFormType_REQUEST:
+      return { ...state, loading: true, msg: null };
+    case GetStockTransactionsByFormType_SUCCESS:
+      return { ...state, loading: false, responseBody: action.payload, msg: null };
+    case GetStockTransactionsByFormType_FAIL:
       return { ...state, loading: false, msg: action.payload?.msg || action.payload };
     default:
       return state;

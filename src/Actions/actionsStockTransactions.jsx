@@ -11,6 +11,9 @@ import {
   PutStockTransactionsDetails_REQUEST,
   PutStockTransactionsDetails_SUCCESS,
   PutStockTransactionsDetails_FAIL,
+  GetStockTransactionsByFormType_REQUEST,
+  GetStockTransactionsByFormType_SUCCESS,
+  GetStockTransactionsByFormType_FAIL,
 } from "../Constants/constantsStockTransactions";
 
 import StockTransactionsService from "../Services/servicesStockTransactions";
@@ -59,6 +62,27 @@ export const GetAllStockTransactions = () => async (dispatch) => {
   } catch (error) {
     const message = error.response?.data?.message || error.message;
     dispatch({ type: GetAllStockTransactions_FAIL, payload: { msg: message } });
+    return Promise.reject(message);
+  }
+};
+
+// ===================== Get Transactions by Form Type =====================
+export const GetStockTransactionsByFormType = (formType) => async (dispatch) => {
+  dispatch({ type: GetStockTransactionsByFormType_REQUEST });
+  try {
+    const { data } = await StockTransactionsService.GetStockTransactionsByFormType(formType);
+    console.log(`✅ GetStockTransactionsByFormType (${formType}) Response:`, data);
+
+    if (data.StatusCode === 200) {
+      dispatch({ type: GetStockTransactionsByFormType_SUCCESS, payload: data.ResultSet });
+      return data.ResultSet;
+    } else {
+      dispatch({ type: GetStockTransactionsByFormType_FAIL, payload: { msg: "Something went wrong" } });
+      return Promise.reject("Something went wrong");
+    }
+  } catch (error) {
+    const message = error.response?.data?.message || error.message;
+    dispatch({ type: GetStockTransactionsByFormType_FAIL, payload: { msg: message } });
     return Promise.reject(message);
   }
 };

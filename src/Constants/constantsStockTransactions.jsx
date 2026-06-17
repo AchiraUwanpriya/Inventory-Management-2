@@ -8,6 +8,11 @@ export const GetAllStockTransactions_REQUEST = "GetAllStockTransactions_REQUEST"
 export const GetAllStockTransactions_SUCCESS = "GetAllStockTransactions_SUCCESS";
 export const GetAllStockTransactions_FAIL = "GetAllStockTransactions_FAIL";
 
+// Get StockTransactions by FormType----
+export const GetStockTransactionsByFormType_REQUEST = "GetStockTransactionsByFormType_REQUEST";
+export const GetStockTransactionsByFormType_SUCCESS = "GetStockTransactionsByFormType_SUCCESS";
+export const GetStockTransactionsByFormType_FAIL = "GetStockTransactionsByFormType_FAIL";
+
 // Get StockTransaction by ID----
 export const GetStockTransactionsByTransactionId_REQUEST = "GetStockTransactionsByTransactionId_REQUEST";
 export const GetStockTransactionsByTransactionId_SUCCESS = "GetStockTransactionsByTransactionId_SUCCESS";

@@ -8,6 +8,12 @@ export const StockTransactionsService = {
     return axios.get(`${base_url}/StockTransactions/GetAllStockTransactions`);
   },
 
+  // ✅ Get stock transactions by form type
+  GetStockTransactionsByFormType: async (formType) => {
+    console.log(`📡 Fetching stock transactions for FormType: ${formType}...`);
+    return axios.get(`${base_url}/StockTransactions/GetStockTransactionsByFormType?TransactionType=${formType}`);
+  },
+
   // ✅ Toggle stock transaction status
   ToggleStockTransactionStatus: async (transactionId, status) => {
     console.log("📡 Toggling transaction status:", transactionId, status);
@@ -20,7 +26,35 @@ export const StockTransactionsService = {
   // ✅ Add new stock transaction
   AddStockTransactionsDetails: async (transaction) => {
     console.log("📡 Adding transaction:", transaction);
-    return axios.post(`${base_url}/StockTransactions/AddStockTransactionsDetails`, transaction);
+    
+    // Map status from friendly text to codes expected by backend: Active -> A, Inactive -> I
+    let statusVal = transaction.Status;
+    if (statusVal === "Active" || statusVal === "A") {
+      statusVal = "A";
+    } else if (statusVal === "Inactive" || statusVal === "I") {
+      statusVal = "I";
+    }
+
+    const params = {
+      ProductID: transaction.ProductID,
+      UserID: transaction.UserID,
+      Quantity: transaction.Quantity,
+      TransactionType: transaction.TransactionType || "IN",
+      TransactiionDate: transaction.TransactiionDate || transaction.TransactionDate || new Date().toISOString().split('T')[0],
+      Status: statusVal || "A",
+    };
+
+    if (transaction.OrderItemID) {
+      params.OrderItemID = transaction.OrderItemID;
+    }
+    if (transaction.OrderItemType) {
+      params.OrderItemType = transaction.OrderItemType;
+    }
+    if (transaction.FormTypeID) {
+      params.FormTypeID = transaction.FormTypeID;
+    }
+
+    return axios.post(`${base_url}/StockTransactions/AddStockTransactionsDetails`, null, { params });
   },
 
   // ✅ Update stock transaction

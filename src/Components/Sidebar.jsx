@@ -34,6 +34,7 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, isSidebarCollapsed, setIsS
     { id: "purchase-orders", label: "Purchase Orders", icon: <ShoppingCart size={20} /> },
     { id: "sales-orders", label: "Sales Orders", icon: <FileText size={20} /> },
     { id: "stock-transactions", label: "Stock Transactions", icon: <TrendingUp size={20} /> },
+    { id: "goods-received-notes", label: "Goods Received Notes", icon: <FileText size={20} /> },
   ];
 
   const colors = {
