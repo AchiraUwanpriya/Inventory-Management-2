@@ -2647,5 +2647,544 @@ Overview Styles
   display: block; /* ensure icon aligns properly */
 }
 
+/* ==========================================
+   GLOBAL COMPACT & SCALING OVERRIDES (DESKTOP, LAPTOP & MOBILE)
+   ========================================== */
+
+/* --- 1. Landing Page Compactness --- */
+.hero {
+  padding: 80px 0 60px !important;
+}
+.hero-title {
+  font-size: 42px !important;
+}
+.hero-description {
+  font-size: 16px !important;
+  margin-bottom: 24px !important;
+}
+.btn-primary-large, .btn-secondary-large {
+  padding: 12px 24px !important;
+  font-size: 15px !important;
+  border-radius: 8px !important;
+}
+.section-header {
+  margin-bottom: 40px !important;
+}
+.section-header h2 {
+  font-size: 30px !important;
+}
+.section-header p {
+  font-size: 15px !important;
+}
+.features-grid {
+  gap: 20px !important;
+}
+.feature-card {
+  padding: 24px !important;
+  border-radius: 12px !important;
+}
+.feature-card h3 {
+  font-size: 20px !important;
+  margin-bottom: 12px !important;
+}
+.about-text h3 {
+  font-size: 20px !important;
+  margin-bottom: 12px !important;
+}
+.about-stats {
+  padding: 24px !important;
+  gap: 20px !important;
+}
+.about-stat h4 {
+  font-size: 28px !important;
+}
+
+/* --- 2. Login Page Compactness --- */
+.login-card {
+  padding: 32px !important;
+  border-radius: 16px !important;
+  max-width: 420px !important;
+}
+.login-header {
+  margin-bottom: 24px !important;
+}
+.login-header h2 {
+  font-size: 24px !important;
+}
+.form-group {
+  margin-bottom: 16px !important;
+}
+.form-group label {
+  font-size: 14px !important;
+  margin-bottom: 6px !important;
+}
+.form-group input, .form-group select, .form-group textarea {
+  padding: 12px 14px !important;
+  font-size: 14px !important;
+}
+.btn-submit {
+  padding: 12px 14px !important;
+  font-size: 14px !important;
+}
+
+/* --- 3. Dashboard Global Sizing Overrides --- */
+
+/* Font sizes inside dashboard container */
+.dashboard [style*="font-size: 42px"] { font-size: 28px !important; }
+.dashboard [style*="font-size: 36px"] { font-size: 22px !important; }
+.dashboard [style*="font-size: 32px"] { font-size: 20px !important; }
+.dashboard [style*="font-size: 28px"] { font-size: 18px !important; }
+.dashboard [style*="font-size: 26px"] { font-size: 17px !important; }
+.dashboard [style*="font-size: 24px"] { font-size: 16px !important; }
+.dashboard [style*="font-size: 20px"] { font-size: 14px !important; }
+.dashboard [style*="font-size: 18px"] { font-size: 14px !important; }
+.dashboard [style*="font-size: 16px"] { font-size: 13px !important; }
+
+/* Control sections (Search boxes / filter cards) */
+.dashboard [style*="padding: 28px"] { padding: 14px 20px !important; }
+.dashboard [style*="padding: 20px 16px"] { padding: 12px 16px !important; }
+
+/* Stat cards and grid padding */
+.dashboard [style*="padding: 32px"] { padding: 16px 20px !important; }
+.dashboard [style*="padding: 24px 20px"] { padding: 12px 16px !important; }
+
+/* Input, Search and Select containers */
+.dashboard [style*="padding: 18px 24px 18px 56px"] { padding: 9px 12px 9px 36px !important; }
+.dashboard [style*="padding: 14px 20px 14px 48px"] { padding: 8px 12px 8px 32px !important; }
+.dashboard [style*="padding: 18px 24px"] { padding: 9px 14px !important; }
+.dashboard [style*="padding: 14px 16px"] { padding: 8px 12px !important; }
+.dashboard [style*="padding: 14px 20px"] { padding: 8px 12px !important; }
+.dashboard [style*="padding: 16px 20px"] { padding: 9px 14px !important; }
+
+/* Buttons */
+.dashboard [style*="padding: 18px 32px"] { padding: 9px 18px !important; }
+.dashboard [style*="padding: 16px 28px"] { padding: 9px 16px !important; }
+.dashboard [style*="padding: 16px 32px"] { padding: 9px 18px !important; }
+.dashboard [style*="padding: 14px 20px"] { padding: 8px 14px !important; }
+.dashboard [style*="padding: 12px 24px"] { padding: 8px 14px !important; }
+
+/* Tables */
+.dashboard [style*="padding: 22px 28px"] { padding: 10px 14px !important; }
+.dashboard [style*="padding: 22px 20px"] { padding: 10px 14px !important; }
+.dashboard [style*="padding: 16px 12px"] { padding: 8px 10px !important; }
+.dashboard [style*="padding: 14px 12px"] { padding: 8px 10px !important; }
+
+/* Margins */
+.dashboard [style*="margin-bottom: 28px"] { margin-bottom: 16px !important; }
+.dashboard [style*="margin-bottom: 24px"] { margin-bottom: 12px !important; }
+.dashboard [style*="margin-bottom: 20px"] { margin-bottom: 12px !important; }
+
+/* Icon adjustments inside search bars */
+.dashboard [style*="position: absolute"][style*="left: 24px"] { left: 12px !important; font-size: 15px !important; }
+.dashboard [style*="position: absolute"][style*="left: 16px"] { left: 10px !important; font-size: 13px !important; }
+
+/* ==========================================
+   ROBUST DASHBOARD ELEMENT SIZING & COMPACTNESS OVERRIDES
+   ========================================== */
+
+/* Overall container padding */
+.dashboard-content > div {
+  padding: 14px 16px !important;
+}
+
+/* Inherited font size scaling inside dashboard content container */
+.dashboard-content,
+.dashboard-content div,
+.dashboard-content p,
+.dashboard-content span,
+.dashboard-content label,
+.dashboard-content td,
+.dashboard-content th,
+.dashboard-content input,
+.dashboard-content select {
+  font-size: 13px !important;
+}
+
+/* Page Header blocks */
+.dashboard-content > div > div[style*="background"] {
+  padding: 16px 20px !important;
+  margin-bottom: 16px !important;
+  border-radius: 12px !important;
+}
+
+/* Page Header icons */
+.dashboard-content > div > div[style*="background"] svg {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+/* Title headings across all dashboard subpages (including 42px, 36px, 32px, 28px, 26px) */
+.dashboard-content h1, 
+.dashboard-content [style*="font-size: 42px"],
+.dashboard-content [style*="fontSize: 42px"],
+.dashboard-content [style*="font-size: 36px"],
+.dashboard-content [style*="fontSize: 36px"],
+.dashboard-content [style*="font-size: 32px"],
+.dashboard-content [style*="fontSize: 32px"],
+.dashboard-content [style*="font-size: 28px"],
+.dashboard-content [style*="fontSize: 28px"],
+.dashboard-content [style*="font-size: 26px"],
+.dashboard-content [style*="fontSize: 26px"] {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+}
+
+/* Subtitles and secondary description text (including 22px, 20px, 18px, 16px) */
+.dashboard-content p[style*="font-size: 22px"],
+.dashboard-content p[style*="fontSize: 22px"],
+.dashboard-content p[style*="font-size: 20px"],
+.dashboard-content p[style*="fontSize: 20px"],
+.dashboard-content p[style*="font-size: 18px"],
+.dashboard-content p[style*="fontSize: 18px"],
+.dashboard-content p[style*="font-size: 16px"],
+.dashboard-content p[style*="fontSize: 16px"],
+.dashboard-content div[style*="font-size: 16px"] p {
+  font-size: 13px !important;
+  margin-top: 4px !important;
+  font-weight: 500 !important;
+}
+
+/* Filter controls / search box panels */
+.dashboard-content div[style*="background"][style*="padding: 28px"],
+.dashboard-content div[style*="background"][style*="padding: 24px"],
+.dashboard-content div[style*="padding: 28px"][style*="border-radius"],
+.dashboard-content div[style*="padding: 24px"][style*="border-radius"] {
+  padding: 12px 16px !important;
+  margin-bottom: 16px !important;
+  border-radius: 12px !important;
+}
+
+/* Overrides for specific inline paddings on cards and containers */
+.dashboard-content [style*="padding: 32px"] { padding: 14px 20px !important; }
+.dashboard-content [style*="padding: 28px"] { padding: 12px 16px !important; }
+.dashboard-content [style*="padding: 24px"] { padding: 12px 16px !important; }
+.dashboard-content [style*="padding: 22px"] { padding: 10px 14px !important; }
+.dashboard-content [style*="padding: 20px"] { padding: 10px 14px !important; }
+.dashboard-content [style*="padding: 18px"] { padding: 8px 12px !important; }
+.dashboard-content [style*="padding: 16px"] { padding: 8px 12px !important; }
+.dashboard-content [style*="padding: 14px"] { padding: 8px 12px !important; }
+
+/* All inputs, selects, custom dropdowns, textareas inside dashboard */
+.dashboard-content input,
+.dashboard-content select,
+.dashboard-content textarea,
+.dashboard-content div[style*="dropdownHeader"],
+.dashboard-content [style*="dropdownHeader"] {
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+  border-radius: 6px !important;
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* Search inputs with absolute positioned icons adjustments */
+.dashboard-content input[placeholder*="Search"] {
+  padding-left: 32px !important;
+}
+.dashboard-content div[style*="searchBox"] svg,
+.dashboard-content [style*="searchIcon"] {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* All action and primary buttons */
+.dashboard-content button,
+.dashboard-content button[style*="padding"],
+.dashboard-content [style*="addButton"] {
+  padding: 8px 14px !important;
+  font-size: 13px !important;
+  border-radius: 6px !important;
+}
+
+/* Summary stats card widgets (total products, etc.) */
+.dashboard-content div[style*="statCard"],
+.dashboard-content div[style*="stat-card"] {
+  padding: 12px 16px !important;
+  border-radius: 10px !important;
+}
+.dashboard-content div[style*="statCard"] p[style*="font-size: 42px"],
+.dashboard-content div[style*="statCard"] p[style*="fontSize: 42px"],
+.dashboard-content div[style*="statCard"] p[style*="font-size: 32px"],
+.dashboard-content div[style*="stat-card"] p[style*="font-size: 42px"],
+.dashboard-content div[style*="stat-card"] p[style*="font-size: 32px"] {
+  font-size: 24px !important;
+  margin-bottom: 4px !important;
+  font-weight: 800 !important;
+}
+.dashboard-content div[style*="statCard"] p[style*="font-size: 16px"],
+.dashboard-content div[style*="statCard"] p[style*="fontSize: 16px"],
+.dashboard-content div[style*="stat-card"] p[style*="font-size: 16px"],
+.dashboard-content div[style*="stat-card"] p[style*="font-size: 12px"] {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+/* Data Tables cells & headers overrides */
+.dashboard-content table {
+  font-size: 13px !important;
+}
+.dashboard-content th,
+.dashboard-content td,
+.dashboard-content th[style*="padding"],
+.dashboard-content td[style*="padding"],
+.dashboard-content [style*="tableHeaderCell"],
+.dashboard-content [style*="tableCell"] {
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+}
+
+/* Pagination container and components overrides */
+.dashboard-content div[style*="paginationContainer"],
+.dashboard-content [style*="paginationContainer"] {
+  padding: 8px 12px !important;
+  gap: 10px !important;
+}
+.dashboard-content div[style*="paginationContainer"] button,
+.dashboard-content [style*="paginationContainer"] button {
+  padding: 6px 10px !important;
+  font-size: 12px !important;
+  min-width: 28px !important;
+}
+.dashboard-content div[style*="paginationContainer"] select,
+.dashboard-content [style*="paginationContainer"] select {
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+}
+
+/* Custom Dropdown headers and list options */
+.dashboard-content div[style*="dropdownHeader"] {
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+}
+.dashboard-content div[style*="dropdownList"] {
+  max-height: 150px !important;
+}
+.dashboard-content div[style*="dropdownItem"] {
+  padding: 6px 10px !important;
+  font-size: 13px !important;
+}
+
+/* Section Header inside views (e.g., Order Items view) */
+.dashboard-content [style*="sectionHeader"] {
+  font-size: 15px !important;
+  margin-bottom: 8px !important;
+  padding-bottom: 4px !important;
+}
+
+/* Order Info / Wide Form Container / Details panel overrides */
+.dashboard-content [style*="orderInfo"],
+.dashboard-content [style*="OrderInfo"] {
+  padding: 12px !important;
+  gap: 16px !important;
+  margin-bottom: 16px !important;
+}
+.dashboard-content [style*="infoLabel"] {
+  font-size: 11px !important;
+}
+.dashboard-content [style*="infoValue"] {
+  font-size: 13px !important;
+}
+.dashboard-content [style*="itemCard"] {
+  padding: 10px 12px !important;
+  margin-bottom: 8px !important;
+}
+
+/* Chart container cards */
+.dashboard-content div[style*="chartsContainer"] {
+  gap: 16px !important;
+  margin-bottom: 16px !important;
+}
+.dashboard-content div[style*="chartCard"] {
+  padding: 16px !important;
+  border-radius: 12px !important;
+}
+.dashboard-content h3[style*="chartTitle"] {
+  font-size: 14px !important;
+  margin-bottom: 12px !important;
+}
+
+/* Global modals fixing layout spacing and positioning */
+body div[style*="position: fixed"][style*="z-index: 1000"],
+body div[style*="position: fixed"][style*="zIndex: 1000"],
+.dashboard-content div[style*="position: fixed"] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px !important;
+  box-sizing: border-box !important;
+  overflow-y: auto !important;
+}
+
+body div[style*="position: fixed"] > div[style*="background"],
+.dashboard-content div[style*="position: fixed"] > div {
+  margin: auto !important;
+  max-width: 95vw !important;
+  width: 500px !important;
+  max-height: 90vh !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Purchase Orders and Sales Orders modals need a wider display due to side-by-side forms and items lists */
+body div[style*="position: fixed"] > div[style*="maxWidth: 1400px"],
+body div[style*="position: fixed"] > div[style*="maxWidth: 1600px"],
+.dashboard-content div[style*="position: fixed"] > div[style*="maxWidth: 1400px"],
+.dashboard-content div[style*="position: fixed"] > div[style*="maxWidth: 1600px"],
+body div[style*="position: fixed"] > div[style*="maxWidth"][style*="1400px"],
+body div[style*="position: fixed"] > div[style*="maxWidth"][style*="1600px"] {
+  width: 90vw !important;
+  max-width: 90vw !important;
+  max-height: 90vh !important;
+}
+
+/* Modal Headers */
+body div[style*="position: fixed"] div[style*="modalHeader"],
+body div[style*="position: fixed"] div[style*="Header"] {
+  padding: 12px 16px !important;
+}
+body div[style*="position: fixed"] h3[style*="modalTitle"],
+body div[style*="position: fixed"] h3[style*="Title"] {
+  font-size: 16px !important;
+}
+
+/* Modal Body elements */
+body div[style*="position: fixed"] div[style*="modalBody"],
+body div[style*="position: fixed"] div[style*="Body"] {
+  padding: 16px !important;
+}
+body div[style*="position: fixed"] div[style*="formGroup"] {
+  margin-bottom: 12px !important;
+}
+body div[style*="position: fixed"] label {
+  font-size: 12px !important;
+  margin-bottom: 4px !important;
+}
+body div[style*="position: fixed"] input,
+body div[style*="position: fixed"] select,
+body div[style*="position: fixed"] textarea {
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+}
+
+/* Modal upload area for images */
+body div[style*="position: fixed"] div[style*="uploadArea"] {
+  padding: 12px !important;
+  min-height: 100px !important;
+}
+body div[style*="position: fixed"] div[style*="uploadArea"] svg {
+  margin-bottom: 6px !important;
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* Modal button groups */
+body div[style*="position: fixed"] div[style*="buttonGroup"] {
+  margin-top: 16px !important;
+  gap: 8px !important;
+}
+body div[style*="position: fixed"] button {
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+}
+
+/* Mobile responsive modals centering and scrollability */
+@media (max-width: 768px) {
+  body div[style*="position: fixed"] > div[style*="background"],
+  .dashboard-content div[style*="position: fixed"] > div {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    max-height: 95vh !important;
+    margin: auto !important;
+  }
+}
+
+/* Compact Table Status & Type Badges */
+.dashboard-content table td [style*="padding: 12px 24px"],
+.dashboard-content table td [style*="padding: 10px 16px"],
+.dashboard-content table td [style*="padding: 8px 16px"],
+.dashboard-content table td [style*="padding: 6px 12px"],
+.dashboard-content table td [style*="padding: 10px 20px"],
+.dashboard-content table td [style*="min-width: 110px"],
+.dashboard-content table td [style*="min-width: 90px"],
+.dashboard-content table td [style*="min-width: 80px"],
+.dashboard-content table td [style*="min-width: 70px"] {
+  padding: 3px 8px !important;
+  font-size: 11px !important;
+  min-width: 72px !important;
+  height: 22px !important;
+  border-radius: 4px !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  letter-spacing: 0.3px !important;
+  text-transform: uppercase !important;
+}
+
+/* Specific scaling adjustment for icons inside type badges and status buttons */
+.dashboard-content table td div[style*="typeBadge"] svg,
+.dashboard-content table td div[style*="Badge"] svg,
+.dashboard-content table td [style*="Badge"] svg,
+.dashboard-content table td [style*="badge"] svg,
+.dashboard-content table td [style*="statusButton"] svg,
+.dashboard-content table td [style*="status-btn"] svg,
+.dashboard-content table td [style*="padding: 8px 16px"] svg,
+.dashboard-content table td [style*="padding: 6px 12px"] svg {
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+  margin-right: 4px !important;
+  margin-left: 0 !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+/* Table Action Buttons (Edit, View, Delete, etc. - square icon buttons) */
+.dashboard-content table td button:has(svg),
+.dashboard-content table td button:has(> svg),
+.dashboard-content table td button[style*="padding:"]:not([style*="min-width"]):not([style*="minWidth"]):not([style*="radius: 2"]):not([style*="radius:2"]),
+.dashboard-content table td button[style*="actionButton"],
+.dashboard-content table td button[style*="action-btn"],
+.dashboard-content table td .action-btn {
+  padding: 6px !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  max-width: 28px !important;
+  max-height: 28px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 4px !important;
+}
+
+/* Force action button icons (Lucide icons) to be small */
+.dashboard-content table td button:has(svg) svg,
+.dashboard-content table td button:has(> svg) svg,
+.dashboard-content table td button[style*="padding:"]:not([style*="min-width"]):not([style*="minWidth"]):not([style*="radius: 2"]):not([style*="radius:2"]) svg,
+.dashboard-content table td button[style*="actionButton"] svg,
+.dashboard-content table td button[style*="action-btn"] svg,
+.dashboard-content table td .action-btn svg {
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px !important;
+  min-height: 14px !important;
+  margin: 0 !important;
+}
+
+/* Scale down other general icons inside table cells */
+.dashboard-content table td svg {
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px !important;
+  min-height: 14px !important;
+}
+
+
+
 
 

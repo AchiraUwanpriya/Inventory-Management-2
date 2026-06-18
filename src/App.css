@@ -278,7 +278,7 @@ body {
 }
 
 /* Ensure smooth transitions */
-* {
+.sidebar, .dashboard-main, .action-btn, .btn-primary, .btn-secondary {
   transition: all 0.3s ease-in-out;
 }
 
