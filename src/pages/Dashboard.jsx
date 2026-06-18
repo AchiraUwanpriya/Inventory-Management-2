@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import Sidebar from '../components/Sidebar'
-import DashboardContent from '../components/DashboardContent'
+import Sidebar from '../Components/Sidebar'
+import DashboardContent from '../Components/DashboardContent'
 import { authActions } from '../Actions/authactions'
 
 const Dashboard = () => {
