@@ -54,44 +54,50 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, isSidebarCollapsed, setIsS
   };
 
   // Fixed toggle handlers
- const handleCloseSidebar = () => {
-  console.log("Close button clicked");
-  if (isMobile) {
-    setIsMobileOpen(false);
-  } else {
-    setIsSidebarCollapsed(!isSidebarCollapsed); // This causes issues
-  }
-};
+  const handleCloseSidebar = () => {
+    console.log("Close button clicked");
+    if (isMobile) {
+      setIsMobileOpen(false);
+    } else {
+      setIsSidebarCollapsed(!isSidebarCollapsed);
+    }
+  };
+
   const handleOpenSidebar = () => {
     console.log("Hamburger clicked");
     if (isMobile) {
       setIsMobileOpen(true);
     } else {
-      setIsSidebarCollapsed(false); // Always expand on desktop
+      setIsSidebarCollapsed(false);
     }
   };
 
-  // Determine if sidebar should be visible
-  const isSidebarVisible = isMobile ? isMobileOpen : !isSidebarCollapsed;
+  // Calculate dynamic width of sidebar
+  const sidebarWidth = isMobile 
+    ? (isMobileOpen ? "260px" : "0px") 
+    : (isSidebarCollapsed ? "80px" : "260px");
+
+  const isSidebarVisible = isMobile ? isMobileOpen : true;
 
   console.log("Sidebar state:", {
     isMobile,
     isMobileOpen,
     isSidebarCollapsed,
+    sidebarWidth,
     isSidebarVisible
   });
 
   const styles = {
     sidebar: {
       height: "100vh",
-      width: isSidebarVisible ? "260px" : "0px",
+      width: sidebarWidth,
       background: `linear-gradient(145deg, ${colors.sidebarBg}, ${colors.headerBg})`,
       color: colors.white,
       position: "fixed",
       top: 0,
       left: 0,
       zIndex: 1000,
-      boxShadow: isSidebarVisible ? "8px 0 20px rgba(0, 0, 0, 0.4)" : "none",
+      boxShadow: (isMobile ? isMobileOpen : true) ? "8px 0 20px rgba(0, 0, 0, 0.4)" : "none",
       transition: "all 0.3s ease-in-out",
       display: "flex",
       flexDirection: "column",
@@ -100,7 +106,7 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, isSidebarCollapsed, setIsS
     sidebarContent: {
       display: "flex",
       flexDirection: "column",
-      width: "260px",
+      width: isSidebarCollapsed && !isMobile ? "80px" : "260px",
       height: "100%",
       opacity: isSidebarVisible ? 1 : 0,
       transition: "opacity 0.2s ease",
@@ -211,8 +217,8 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, isSidebarCollapsed, setIsS
 
   return (
     <>
-      {/* Hamburger Menu - Show when sidebar is hidden */}
-      {!isSidebarVisible && (
+      {/* Hamburger Menu - Show when sidebar is hidden on mobile */}
+      {isMobile && !isMobileOpen && (
         <div style={styles.hamburger} onClick={handleOpenSidebar}>
           <Menu size={22} />
         </div>
@@ -227,28 +233,39 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, isSidebarCollapsed, setIsS
       <aside style={styles.sidebar}>
         <div style={styles.sidebarContent}>
           <div style={styles.header}>
-            <div style={styles.headerContent}>
-              <Package size={22} />
-              <span>Dreamy Dreams</span>
-            </div>
-            
-            {/* Improved close button with better icon */}
-            {/* <button
-              style={styles.closeButton}
-              onClick={handleCloseSidebar}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = colors.hoverBg;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "transparent";
-              }}
-              title={isMobile ? "Close sidebar" : "Collapse sidebar"}
-            >
-              {isMobile ? <ChevronLeft size={20} /> : <ChevronLeft size={20} />}
-            </button> */}
+            {isSidebarCollapsed && !isMobile ? (
+              <button
+                style={{ ...styles.closeButton, width: "100%" }}
+                onClick={handleCloseSidebar}
+                title="Expand sidebar"
+              >
+                <Menu size={22} />
+              </button>
+            ) : (
+              <>
+                <div style={styles.headerContent}>
+                  <Package size={22} />
+                  <span>Dreamy Dreams</span>
+                </div>
+                
+                <button
+                  style={styles.closeButton}
+                  onClick={handleCloseSidebar}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = colors.hoverBg;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "transparent";
+                  }}
+                  title={isMobile ? "Close sidebar" : "Collapse sidebar"}
+                >
+                  <ChevronLeft size={20} />
+                </button>
+              </>
+            )}
           </div>
 
-          <nav style={styles.nav}>
+          <nav style={{ ...styles.nav, alignItems: isSidebarCollapsed && !isMobile ? 'center' : 'stretch' }}>
             {menuItems.map((item) => (
               <button
                 key={item.id}
@@ -256,7 +273,11 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, isSidebarCollapsed, setIsS
                   setActiveTab(item.id);
                   if (isMobile) setIsMobileOpen(false);
                 }}
-                style={styles.navButton(activeTab === item.id)}
+                style={{
+                  ...styles.navButton(activeTab === item.id),
+                  justifyContent: isSidebarCollapsed && !isMobile ? 'center' : 'flex-start',
+                  padding: isSidebarCollapsed && !isMobile ? '14px 0' : '14px 16px'
+                }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = activeTab === item.id ? colors.activeBg : colors.hoverBg;
                   e.currentTarget.style.transform = "scale(1.02)";
@@ -265,9 +286,12 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, isSidebarCollapsed, setIsS
                   e.currentTarget.style.backgroundColor = activeTab === item.id ? colors.activeBg : "transparent";
                   e.currentTarget.style.transform = "scale(1)";
                 }}
+                title={isSidebarCollapsed && !isMobile ? item.label : ""}
               >
                 {item.icon}
-                <span style={{ fontWeight: 600, fontSize: 14 }}>{item.label}</span>
+                {(!isMobile && isSidebarCollapsed) ? null : (
+                  <span style={{ fontWeight: 600, fontSize: 14 }}>{item.label}</span>
+                )}
               </button>
             ))}
           </nav>
@@ -275,7 +299,11 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, isSidebarCollapsed, setIsS
           <div style={styles.footer}>
             <button
               onClick={onLogout}
-              style={styles.logoutButton}
+              style={{
+                ...styles.logoutButton,
+                justifyContent: isSidebarCollapsed && !isMobile ? 'center' : 'center',
+                padding: isSidebarCollapsed && !isMobile ? '14px 0' : '14px 20px'
+              }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = colors.logoutHover;
                 e.currentTarget.style.transform = "scale(1.02)";
@@ -284,9 +312,10 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, isSidebarCollapsed, setIsS
                 e.currentTarget.style.backgroundColor = colors.logoutRed;
                 e.currentTarget.style.transform = "scale(1)";
               }}
+              title={isSidebarCollapsed && !isMobile ? "Logout" : ""}
             >
               <LogOut size={18} />
-              <span>Logout</span>
+              {(!isMobile && isSidebarCollapsed) ? null : <span>Logout</span>}
             </button>
           </div>
         </div>

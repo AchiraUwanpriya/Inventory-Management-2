@@ -2377,18 +2377,40 @@ const Suppliers = () => {
         
         {isMobile ? (
           <>
-            <button
-              style={styles.mobileFilterButton}
-              onClick={() => setShowMobileFilters(!showMobileFilters)}
-            >
-              <Filter size={20} />
-              Filters & Actions
-            </button>
+            <div style={{ display: 'flex', gap: '12px', width: '100%', marginTop: '12px' }}>
+              <button
+                style={{ ...styles.addButton, flex: 1, margin: 0 }}
+                onClick={() => {
+                  setFormSupplier({
+                    SupplierID: getNextSupplierID().toString(),
+                    SupplierName: '',
+                    ContactPerson: '',
+                    Phone: '',
+                    Email: '',
+                    Address: '',
+                    Status: 'Active',
+                  });
+                  setEditingSupplierID(null);
+                  setFormErrors({});
+                  setShowForm(true);
+                }}
+              >
+                <Plus size={20} /> Add Supplier
+              </button>
+              
+              <button
+                style={styles.mobileFilterButton}
+                onClick={() => setShowMobileFilters(!showMobileFilters)}
+              >
+                <Filter size={20} />
+                Filters
+              </button>
+            </div>
             
             {/* Mobile Filters Panel */}
             <div style={styles.mobileFiltersPanel}>
               <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                <h3 style={{margin: 0, color: colors.dark}}>Filters & Actions</h3>
+                <h3 style={{margin: 0, color: colors.dark}}>Filters</h3>
                 <button 
                   style={styles.closeButton}
                   onClick={() => setShowMobileFilters(false)}
@@ -2408,44 +2430,14 @@ const Suppliers = () => {
                     `linear-gradient(135deg, ${colors.light} 0%, #d1fae5 100%)` : 
                     `linear-gradient(135deg, ${colors.light} 0%, #fef3c7 100%)`,
                   borderColor: statusFilter === 'All' ? colors.grayLighter :
-                            statusFilter === 'Active' ? colors.success : colors.warning
+                            statusFilter === 'Active' ? colors.success : colors.warning,
+                  width: '100%'
                 }}
               >
                 <option value="All">All Status</option>
                 <option value="Active">Active</option>
                 <option value="Inactive">Inactive</option>
               </select>
-
-              <button
-                style={styles.addButton}
-                onMouseOver={(e) => {
-                  e.target.style.transform = 'translateY(-2px) scale(1.02)';
-                  e.target.style.boxShadow = `0 8px 24px ${colors.shadowDark}`;
-                  e.target.style.background = `linear-gradient(135deg, ${colors.secondary} 0%, ${colors.secondaryDark} 100%)`;
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.transform = 'translateY(0) scale(1)';
-                  e.target.style.boxShadow = `0 4px 16px ${colors.shadowDark}`;
-                  e.target.style.background = `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`;
-                }}
-                onClick={() => {
-                  setFormSupplier({
-                    SupplierID: getNextSupplierID().toString(),
-                    SupplierName: '',
-                    ContactPerson: '',
-                    Phone: '',
-                    Email: '',
-                    Address: '',
-                    Status: 'Active',
-                  });
-                  setEditingSupplierID(null);
-                  setFormErrors({});
-                  setShowForm(true);
-                  setShowMobileFilters(false);
-                }}
-              >
-                <Plus size={20} /> Add New Supplier
-              </button>
             </div>
           </>
         ) : (

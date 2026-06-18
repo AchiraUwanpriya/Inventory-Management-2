@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Plus, Edit, Search, X, Upload, Package, ChevronDown, BookOpen, Ruler, Menu, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
+import { Plus, Edit, Search, X, Upload, Package, ChevronDown, BookOpen, Ruler, Menu, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, Filter } from "lucide-react";
 import {
   GetAllProducts,
   AddProductsDetails,
@@ -1316,16 +1316,29 @@ const Products = () => {
                   style={styles.searchInput}
                 />
               </div>
+            </div>
+            
+            <div style={{ display: 'flex', gap: '12px', width: '100%', marginTop: '12px' }}>
+              <button
+                style={{ ...styles.addButton, flex: 1, margin: 0 }}
+                onClick={() => {
+                  handleFormReset();
+                  setShowForm(true);
+                }}
+              >
+                <Plus size={20} /> Add Product
+              </button>
               <button 
-                style={styles.mobileFilterButton}
+                style={{ ...styles.mobileFilterButton, padding: '12px 20px', display: 'flex', alignItems: 'center', gap: '8px' }}
                 onClick={() => setShowMobileFilters(!showMobileFilters)}
               >
-                <Menu size={16} />
+                <Filter size={16} />
                 Filters
               </button>
             </div>
+
             {showMobileFilters && (
-              <div style={styles.mobileFilters}>
+              <div style={{ ...styles.mobileFilters, width: '100%', marginTop: '12px' }}>
                 <select 
                   value={statusFilter} 
                   onChange={e => setStatusFilter(e.target.value)}
@@ -1337,22 +1350,15 @@ const Products = () => {
                       `linear-gradient(135deg, ${colors.light} 0%, #d1fae5 100%)` : 
                       `linear-gradient(135deg, ${colors.light} 0%, #fef3c7 100%)`,
                     borderColor: statusFilter === 'All' ? colors.grayLighter :
-                               statusFilter === 'Active' ? colors.success : colors.warning
+                               statusFilter === 'Active' ? colors.success : colors.warning,
+                    width: '100%',
+                    margin: 0
                   }}
                 >
                   <option value="All">All Status</option>
                   <option value="Active">Active</option>
                   <option value="Inactive">Inactive</option>
                 </select>
-                <button
-                  style={styles.addButton}
-                  onClick={() => {
-                    handleFormReset();
-                    setShowForm(true);
-                  }}
-                >
-                  <Plus size={isMobile ? 20 : 24} /> Add Product
-                </button>
               </div>
             )}
           </>
