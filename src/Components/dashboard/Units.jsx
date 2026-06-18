@@ -39,12 +39,12 @@
 //     }
 //     setShowPopup(true);
 //     setPopupProgress(100);
-    
+
 //     const duration = 4000; // 4 seconds
 //     const interval = 50; // Update every 50ms
 //     const steps = duration / interval;
 //     const decrement = 100 / steps;
-    
+
 //     const progressTimer = setInterval(() => {
 //       setPopupProgress(prev => {
 //         const newProgress = prev - decrement;
@@ -76,7 +76,7 @@
 
 //     checkScreenSize();
 //     window.addEventListener('resize', checkScreenSize);
-    
+
 //     return () => {
 //       window.removeEventListener('resize', checkScreenSize);
 //     };
@@ -286,7 +286,7 @@
 //     },
 //     popupProgressBar: {
 //       height: '4px',
-//       background: errorMsg 
+//       background: errorMsg
 //         ? `linear-gradient(90deg, ${colors.error} 0%, #dc2626 100%)`
 //         : `linear-gradient(90deg, ${colors.success} 0%, #059669 100%)`,
 //       width: `${popupProgress}%`,
@@ -297,7 +297,7 @@
 //       alignItems: 'center',
 //       padding: isMobile ? '14px 20px' : '18px 28px',
 //       gap: '12px',
-//       background: errorMsg 
+//       background: errorMsg
 //         ? `linear-gradient(135deg, ${colors.error} 0%, #dc2626 100%)`
 //         : `linear-gradient(135deg, ${colors.success} 0%, #059669 100%)`,
 //       color: colors.white
@@ -786,7 +786,7 @@
 
 //       {/* Statistics Cards */}
 //       <div style={styles.statsContainer}>
-//         <div 
+//         <div
 //           style={styles.statCard}
 //           onMouseOver={(e) => {
 //             e.currentTarget.style.transform = 'translateY(-4px)';
@@ -800,7 +800,7 @@
 //           <p style={styles.statNumber}>{units.length}</p>
 //           <p style={styles.statLabel}>TOTAL UNITS</p>
 //         </div>
-//         <div 
+//         <div
 //           style={{
 //             ...styles.statCard,
 //             borderLeft: `4px solid ${colors.success}`
@@ -817,7 +817,7 @@
 //           <p style={{...styles.statNumber, color: colors.success}}>{activeUnits}</p>
 //           <p style={styles.statLabel}>ACTIVE UNITS</p>
 //         </div>
-//         <div 
+//         <div
 //           style={{
 //             ...styles.statCard,
 //             borderLeft: `4px solid ${colors.error}`
@@ -856,16 +856,16 @@
 //             }}
 //           />
 //         </div>
-        
-//         <select 
-//           value={statusFilter} 
+
+//         <select
+//           value={statusFilter}
 //           onChange={e => setStatusFilter(e.target.value)}
 //           style={{
 //             ...styles.filterSelect,
-//             background: statusFilter === 'All' ? 
+//             background: statusFilter === 'All' ?
 //               `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)` :
-//               statusFilter === 'Active' ? 
-//               `linear-gradient(135deg, ${colors.light} 0%, #d1fae5 100%)` : 
+//               statusFilter === 'Active' ?
+//               `linear-gradient(135deg, ${colors.light} 0%, #d1fae5 100%)` :
 //               `linear-gradient(135deg, ${colors.light} 0%, #fef3c7 100%)`,
 //             borderColor: statusFilter === 'All' ? colors.grayLighter :
 //                        statusFilter === 'Active' ? colors.success : colors.warning
@@ -895,10 +895,10 @@
 //             e.target.style.background = `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`;
 //           }}
 //           onClick={() => {
-//             setFormUnit({ 
-//               UnitID: getNextUnitID(), 
-//               UnitName: "", 
-//               Status: "Active" 
+//             setFormUnit({
+//               UnitID: getNextUnitID(),
+//               UnitName: "",
+//               Status: "Active"
 //             });
 //             setEditingUnitID(null);
 //             setShowForm(true);
@@ -916,7 +916,7 @@
 //               <h3 style={styles.modalTitle}>
 //                 {editingUnitID ? "EDIT UNIT STATUS" : "ADD NEW UNIT"}
 //               </h3>
-//               <button 
+//               <button
 //                 style={styles.closeButton}
 //                 onClick={() => {
 //                   setShowForm(false);
@@ -928,7 +928,7 @@
 //                 <X size={isMobile ? 24 : 28} />
 //               </button>
 //             </div>
-            
+
 //             <div style={styles.modalBody}>
 //               <form onSubmit={handleFormSubmit}>
 //                 {!editingUnitID && (
@@ -956,16 +956,16 @@
 //                 {editingUnitID && (
 //                   <div style={styles.formGroup}>
 //                     <label style={styles.label}>Unit Name</label>
-//                     <input 
-//                       type="text" 
-//                       value={formUnit.UnitName} 
-//                       disabled 
+//                     <input
+//                       type="text"
+//                       value={formUnit.UnitName}
+//                       disabled
 //                       style={{
-//                         ...styles.input, 
+//                         ...styles.input,
 //                         backgroundColor: colors.grayLighter,
 //                         color: colors.grayDark,
 //                         cursor: 'not-allowed'
-//                       }} 
+//                       }}
 //                     />
 //                     <p style={{ fontSize: '14px', color: colors.gray, margin: '8px 0 0 0' }}>
 //                       Unit name cannot be modified after creation
@@ -980,8 +980,8 @@
 //                     onChange={(e) => setFormUnit({ ...formUnit, Status: e.target.value })}
 //                     style={{
 //                       ...styles.select,
-//                       background: formUnit.Status === 'Active' ? 
-//                         `linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)` : 
+//                       background: formUnit.Status === 'Active' ?
+//                         `linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)` :
 //                         `linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)`,
 //                       borderColor: formUnit.Status === 'Active' ? colors.success : colors.warning,
 //                       color: colors.dark
@@ -999,8 +999,8 @@
 //                 </div>
 
 //                 <div style={styles.buttonGroup}>
-//                   <button 
-//                     type="button" 
+//                   <button
+//                     type="button"
 //                     style={styles.secondaryButton}
 //                     onMouseOver={(e) => {
 //                       e.target.style.background = `linear-gradient(135deg, ${colors.grayLighter} 0%, ${colors.grayLight} 100%)`;
@@ -1017,8 +1017,8 @@
 //                   >
 //                     Cancel
 //                   </button>
-//                   <button 
-//                     type="submit" 
+//                   <button
+//                     type="submit"
 //                     style={styles.primaryButton}
 //                     onMouseOver={(e) => {
 //                       e.target.style.transform = 'translateY(-2px)';
@@ -1049,11 +1049,11 @@
 //               <div style={{textAlign: 'center', padding: '40px'}}>
 //                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px'}}>
 //                   <div style={{
-//                     width: '28px', 
-//                     height: '28px', 
-//                     border: '3px solid #f0fdf4', 
-//                     borderTop: '3px solid #10b981', 
-//                     borderRadius: '50%', 
+//                     width: '28px',
+//                     height: '28px',
+//                     border: '3px solid #f0fdf4',
+//                     borderTop: '3px solid #10b981',
+//                     borderRadius: '50%',
 //                     animation: 'spin 1s linear infinite'
 //                   }}></div>
 //                   <span style={{fontWeight: '600', color: colors.primary, fontSize: '16px'}}>Loading units...</span>
@@ -1061,7 +1061,7 @@
 //               </div>
 //             ) : filteredUnits.length > 0 ? (
 //               filteredUnits.map((unit) => (
-//                 <div 
+//                 <div
 //                   key={unit.UnitID}
 //                   style={{
 //                     background: `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`,
@@ -1104,13 +1104,13 @@
 //                       <Edit size={16} />
 //                     </button>
 //                   </div>
-                  
+
 //                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px' }}>
 //                     <button
 //                       style={{
 //                         ...styles.statusButton,
-//                         background: unit.Status === "Active" ? 
-//                           `linear-gradient(135deg, ${colors.success} 0%, #059669 100%)` : 
+//                         background: unit.Status === "Active" ?
+//                           `linear-gradient(135deg, ${colors.success} 0%, #059669 100%)` :
 //                           `linear-gradient(135deg, ${colors.warning} 0%, #d97706 100%)`,
 //                         color: colors.white,
 //                         flex: 1,
@@ -1150,11 +1150,11 @@
 //                   <td colSpan={4} style={{...styles.tableCell, textAlign: 'center', padding: '60px'}}>
 //                     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px'}}>
 //                       <div style={{
-//                         width: '28px', 
-//                         height: '28px', 
-//                         border: '3px solid #f0fdf4', 
-//                         borderTop: '3px solid #10b981', 
-//                         borderRadius: '50%', 
+//                         width: '28px',
+//                         height: '28px',
+//                         border: '3px solid #f0fdf4',
+//                         borderTop: '3px solid #10b981',
+//                         borderRadius: '50%',
 //                         animation: 'spin 1s linear infinite'
 //                       }}></div>
 //                       <span style={{fontWeight: '600', color: colors.primary, fontSize: '18px'}}>Loading units...</span>
@@ -1163,8 +1163,8 @@
 //                 </tr>
 //               ) : filteredUnits.length > 0 ? (
 //                 filteredUnits.map((unit) => (
-//                   <tr 
-//                     key={unit.UnitID} 
+//                   <tr
+//                     key={unit.UnitID}
 //                     style={styles.tableRow}
 //                     onMouseOver={(e) => {
 //                       e.currentTarget.style.background = `linear-gradient(135deg, ${colors.light} 0%, ${colors.grayLighter} 100%)`;
@@ -1188,8 +1188,8 @@
 //                       <button
 //                         style={{
 //                           ...styles.statusButton,
-//                           background: unit.Status === "Active" ? 
-//                             `linear-gradient(135deg, ${colors.success} 0%, #059669 100%)` : 
+//                           background: unit.Status === "Active" ?
+//                             `linear-gradient(135deg, ${colors.success} 0%, #059669 100%)` :
 //                             `linear-gradient(135deg, ${colors.warning} 0%, #d97706 100%)`,
 //                           color: colors.white
 //                         }}
@@ -1248,7 +1248,7 @@
 //           0% { transform: rotate(0deg); }
 //           100% { transform: rotate(360deg); }
 //         }
-        
+
 //         @keyframes slideDown {
 //           from {
 //             transform: translateX(-50%) translateY(-100%);
@@ -1259,7 +1259,7 @@
 //             opacity: 1;
 //           }
 //         }
-        
+
 //         @keyframes slideUp {
 //           from {
 //             transform: translateX(-50%) translateY(0);
@@ -1280,7 +1280,20 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Plus, Edit, Search, X, Ruler, Building2, ArrowLeft, Menu, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
+import {
+  Plus,
+  Edit,
+  Search,
+  X,
+  Ruler,
+  Building2,
+  ArrowLeft,
+  Menu,
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+} from "lucide-react";
 import {
   GetAllUnits,
   AddUnitsDetails,
@@ -1294,7 +1307,7 @@ const Units = () => {
 
   const [units, setUnits] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [statusFilter, setStatusFilter] = useState('All');
+  const [statusFilter, setStatusFilter] = useState("All");
   const [showForm, setShowForm] = useState(false);
   const [editingUnitID, setEditingUnitID] = useState(null);
   const [formUnit, setFormUnit] = useState({
@@ -1323,14 +1336,14 @@ const Units = () => {
     }
     setShowPopup(true);
     setPopupProgress(100);
-    
+
     const duration = 4000; // 4 seconds
     const interval = 50; // Update every 50ms
     const steps = duration / interval;
     const decrement = 100 / steps;
-    
+
     const progressTimer = setInterval(() => {
-      setPopupProgress(prev => {
+      setPopupProgress((prev) => {
         const newProgress = prev - decrement;
         if (newProgress <= 0) {
           clearInterval(progressTimer);
@@ -1359,35 +1372,35 @@ const Units = () => {
     };
 
     checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    
+    window.addEventListener("resize", checkScreenSize);
+
     return () => {
-      window.removeEventListener('resize', checkScreenSize);
+      window.removeEventListener("resize", checkScreenSize);
     };
   }, []);
 
   // Real World Enterprise Application Color Theme
   const colors = {
-    primaryDark: '#1e40af',
-    primary: '#3b82f6',
-    primaryLight: '#60a5fa',
-    secondaryDark: '#059669',
-    secondary: '#10b981',
-    secondaryLight: '#34d399',
-    success: '#10b981',
-    warning: '#f59e0b',
-    error: '#ef4444',
-    info: '#06b6d4',
-    dark: '#1f2937',
-    grayDark: '#374151',
-    gray: '#6b7280',
-    grayLight: '#9ca3af',
-    grayLighter: '#e5e7eb',
-    light: '#f9fafb',
-    white: '#ffffff',
-    shadowDark: 'rgba(30, 64, 175, 0.2)',
-    shadowLight: 'rgba(16, 185, 129, 0.1)',
-    highlight: 'rgba(255, 255, 255, 0.9)',
+    primaryDark: "#1e40af",
+    primary: "#3b82f6",
+    primaryLight: "#60a5fa",
+    secondaryDark: "#059669",
+    secondary: "#10b981",
+    secondaryLight: "#34d399",
+    success: "#10b981",
+    warning: "#f59e0b",
+    error: "#ef4444",
+    info: "#06b6d4",
+    dark: "#1f2937",
+    grayDark: "#374151",
+    gray: "#6b7280",
+    grayLight: "#9ca3af",
+    grayLighter: "#e5e7eb",
+    light: "#f9fafb",
+    white: "#ffffff",
+    shadowDark: "rgba(30, 64, 175, 0.2)",
+    shadowLight: "rgba(16, 185, 129, 0.1)",
+    highlight: "rgba(255, 255, 255, 0.9)",
   };
 
   useEffect(() => {
@@ -1404,8 +1417,8 @@ const Units = () => {
           u?.Status?.trim().toUpperCase() === "A"
             ? "Active"
             : u?.Status?.trim().toUpperCase() === "I"
-            ? "Inactive"
-            : u?.Status || "Active",
+              ? "Inactive"
+              : u?.Status || "Active",
       }));
       // Sort by Unit ID in descending order
       const sorted = mapped.sort((a, b) => b.UnitID - a.UnitID);
@@ -1427,8 +1440,8 @@ const Units = () => {
   const filteredUnits = units.filter(
     (u) =>
       ((u.UnitName || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (u.UnitID || "").toString().includes(searchTerm)) &&
-      (statusFilter === 'All' || u.Status === statusFilter)
+        (u.UnitID || "").toString().includes(searchTerm)) &&
+      (statusFilter === "All" || u.Status === statusFilter),
   );
 
   // Pagination calculations
@@ -1436,7 +1449,7 @@ const Units = () => {
     const total = filteredUnits.length;
     const pages = Math.ceil(total / itemsPerPage);
     setTotalPages(pages);
-    
+
     // Reset to first page if current page is beyond new total pages
     if (currentPage > pages && pages > 0) {
       setCurrentPage(1);
@@ -1480,8 +1493,8 @@ const Units = () => {
   };
 
   // Calculate statistics
-  const activeUnits = units.filter(u => u.Status === 'Active').length;
-  const inactiveUnits = units.filter(u => u.Status === 'Inactive').length;
+  const activeUnits = units.filter((u) => u.Status === "Active").length;
+  const inactiveUnits = units.filter((u) => u.Status === "Inactive").length;
 
   // Add / Edit unit
   const handleFormSubmit = async (e) => {
@@ -1496,8 +1509,8 @@ const Units = () => {
     // Check duplicates
     const duplicate = units.some(
       (u) =>
-        u.UnitName.trim().toLowerCase() === formUnit.UnitName.trim().toLowerCase() &&
-        u.UnitID !== editingUnitID
+        u.UnitName.trim().toLowerCase() ===
+          formUnit.UnitName.trim().toLowerCase() && u.UnitID !== editingUnitID,
     );
 
     if (duplicate) {
@@ -1568,19 +1581,22 @@ const Units = () => {
     const getPageNumbers = () => {
       const pages = [];
       const maxVisiblePages = isMobile ? 3 : 5;
-      
-      let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+
+      let startPage = Math.max(
+        1,
+        currentPage - Math.floor(maxVisiblePages / 2),
+      );
       let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-      
+
       // Adjust start page if we're near the end
       if (endPage - startPage + 1 < maxVisiblePages) {
         startPage = Math.max(1, endPage - maxVisiblePages + 1);
       }
-      
+
       for (let i = startPage; i <= endPage; i++) {
         pages.push(i);
       }
-      
+
       return pages;
     };
 
@@ -1604,7 +1620,9 @@ const Units = () => {
 
         {/* Page info */}
         <div style={styles.pageInfo}>
-          Showing {indexOfFirstItem + 1}-{Math.min(indexOfLastItem, filteredUnits.length)} of {filteredUnits.length} units
+          Showing {indexOfFirstItem + 1}-
+          {Math.min(indexOfLastItem, filteredUnits.length)} of{" "}
+          {filteredUnits.length} units
         </div>
 
         {/* Pagination controls */}
@@ -1613,7 +1631,7 @@ const Units = () => {
           <button
             style={{
               ...styles.paginationButton,
-              ...(currentPage === 1 ? styles.paginationButtonDisabled : {})
+              ...(currentPage === 1 ? styles.paginationButtonDisabled : {}),
             }}
             onClick={goToFirstPage}
             disabled={currentPage === 1}
@@ -1625,7 +1643,7 @@ const Units = () => {
           <button
             style={{
               ...styles.paginationButton,
-              ...(currentPage === 1 ? styles.paginationButtonDisabled : {})
+              ...(currentPage === 1 ? styles.paginationButtonDisabled : {}),
             }}
             onClick={goToPrevPage}
             disabled={currentPage === 1}
@@ -1634,12 +1652,12 @@ const Units = () => {
           </button>
 
           {/* Page Numbers */}
-          {getPageNumbers().map(page => (
+          {getPageNumbers().map((page) => (
             <button
               key={page}
               style={{
                 ...styles.paginationButton,
-                ...(page === currentPage ? styles.paginationButtonActive : {})
+                ...(page === currentPage ? styles.paginationButtonActive : {}),
               }}
               onClick={() => goToPage(page)}
             >
@@ -1651,7 +1669,9 @@ const Units = () => {
           <button
             style={{
               ...styles.paginationButton,
-              ...(currentPage === totalPages ? styles.paginationButtonDisabled : {})
+              ...(currentPage === totalPages
+                ? styles.paginationButtonDisabled
+                : {}),
             }}
             onClick={goToNextPage}
             disabled={currentPage === totalPages}
@@ -1663,7 +1683,9 @@ const Units = () => {
           <button
             style={{
               ...styles.paginationButton,
-              ...(currentPage === totalPages ? styles.paginationButtonDisabled : {})
+              ...(currentPage === totalPages
+                ? styles.paginationButtonDisabled
+                : {}),
             }}
             onClick={goToLastPage}
             disabled={currentPage === totalPages}
@@ -1678,449 +1700,449 @@ const Units = () => {
   // Base Styles (unchanged for desktop)
   const baseStyles = {
     container: {
-      minHeight: '100vh',
+      minHeight: "100vh",
       background: `linear-gradient(135deg, ${colors.light} 0%, ${colors.grayLighter} 100%)`,
-      padding: '24px',
-      fontFamily: "'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+      padding: "24px",
+      fontFamily: "'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     },
     header: {
       background: `linear-gradient(135deg, ${colors.primaryDark} 0%, ${colors.primary} 100%)`,
-      padding: '32px',
-      borderRadius: '16px',
-      marginBottom: '28px',
+      padding: "32px",
+      borderRadius: "16px",
+      marginBottom: "28px",
       boxShadow: `0 8px 32px ${colors.shadowDark}`,
       border: `1px solid ${colors.highlight}`,
-      position: 'relative',
-      overflow: 'hidden'
+      position: "relative",
+      overflow: "hidden",
     },
     headerContent: {
-      position: 'relative',
+      position: "relative",
       zIndex: 2,
-      display: 'flex',
-      alignItems: 'center',
-      gap: '20px'
+      display: "flex",
+      alignItems: "center",
+      gap: "20px",
     },
     pageTitle: {
-      fontSize: '36px',
-      fontWeight: '800',
+      fontSize: "36px",
+      fontWeight: "800",
       color: colors.white,
       margin: 0,
-      textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
+      textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
     },
     pageSubtitle: {
-      fontSize: '18px',
+      fontSize: "18px",
       color: colors.highlight,
-      margin: '6px 0 0 0',
-      fontWeight: '500'
+      margin: "6px 0 0 0",
+      fontWeight: "500",
     },
     // Popup Notification Styles
     popupContainer: {
-      position: 'fixed',
-      top: '20px',
-      left: '50%',
-      transform: 'translateX(-50%)',
+      position: "fixed",
+      top: "20px",
+      left: "50%",
+      transform: "translateX(-50%)",
       zIndex: 9999,
       background: `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`,
-      borderRadius: '12px',
+      borderRadius: "12px",
       boxShadow: `0 8px 32px rgba(0, 0, 0, 0.3)`,
       border: `1px solid ${colors.highlight}`,
-      minWidth: isMobile ? '300px' : '400px',
-      maxWidth: '90vw',
-      overflow: 'hidden',
-      animation: 'slideDown 0.3s ease-out'
+      minWidth: isMobile ? "300px" : "400px",
+      maxWidth: "90vw",
+      overflow: "hidden",
+      animation: "slideDown 0.3s ease-out",
     },
     popupProgressBar: {
-      height: '4px',
-      background: errorMsg 
+      height: "4px",
+      background: errorMsg
         ? `linear-gradient(90deg, ${colors.error} 0%, #dc2626 100%)`
         : `linear-gradient(90deg, ${colors.success} 0%, #059669 100%)`,
       width: `${popupProgress}%`,
-      transition: 'width 50ms linear'
+      transition: "width 50ms linear",
     },
     popupContent: {
-      display: 'flex',
-      alignItems: 'center',
-      padding: isMobile ? '14px 20px' : '18px 28px',
-      gap: '12px',
-      background: errorMsg 
+      display: "flex",
+      alignItems: "center",
+      padding: isMobile ? "14px 20px" : "18px 28px",
+      gap: "12px",
+      background: errorMsg
         ? `linear-gradient(135deg, ${colors.error} 0%, #dc2626 100%)`
         : `linear-gradient(135deg, ${colors.success} 0%, #059669 100%)`,
-      color: colors.white
+      color: colors.white,
     },
     popupMessage: {
       flex: 1,
-      fontWeight: '600',
-      fontSize: isMobile ? '14px' : '16px',
-      margin: 0
+      fontWeight: "600",
+      fontSize: isMobile ? "14px" : "16px",
+      margin: 0,
     },
     popupCloseButton: {
-      background: 'none',
-      border: 'none',
+      background: "none",
+      border: "none",
       color: colors.white,
-      cursor: 'pointer',
-      padding: '4px',
-      borderRadius: '4px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      transition: 'all 0.3s ease'
+      cursor: "pointer",
+      padding: "4px",
+      borderRadius: "4px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      transition: "all 0.3s ease",
     },
     statsContainer: {
-      display: 'flex',
-      gap: '24px',
-      marginBottom: '28px',
-      flexWrap: 'wrap'
+      display: "flex",
+      gap: "24px",
+      marginBottom: "28px",
+      flexWrap: "wrap",
     },
     statCard: {
-      flex: '1',
-      minWidth: '220px',
+      flex: "1",
+      minWidth: "220px",
       background: `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`,
-      padding: '28px',
-      borderRadius: '16px',
+      padding: "28px",
+      borderRadius: "16px",
       boxShadow: `0 6px 24px ${colors.shadowDark}, 0 2px 8px rgba(0,0,0,0.1)`,
       border: `1px solid ${colors.highlight}`,
-      textAlign: 'center',
-      position: 'relative',
-      overflow: 'hidden',
-      transition: 'all 0.3s ease'
+      textAlign: "center",
+      position: "relative",
+      overflow: "hidden",
+      transition: "all 0.3s ease",
     },
     statNumber: {
-      fontSize: '42px',
-      fontWeight: '800',
+      fontSize: "42px",
+      fontWeight: "800",
       color: colors.primaryDark,
-      margin: '0 0 10px 0',
-      textShadow: '1px 1px 2px rgba(0,0,0,0.1)'
+      margin: "0 0 10px 0",
+      textShadow: "1px 1px 2px rgba(0,0,0,0.1)",
     },
     statLabel: {
-      fontSize: '16px',
+      fontSize: "16px",
       color: colors.grayDark,
       margin: 0,
-      fontWeight: '600',
-      textTransform: 'uppercase',
-      letterSpacing: '0.5px'
+      fontWeight: "600",
+      textTransform: "uppercase",
+      letterSpacing: "0.5px",
     },
     controls: {
-      display: 'flex',
-      gap: '24px',
-      alignItems: 'center',
-      marginBottom: '28px',
+      display: "flex",
+      gap: "24px",
+      alignItems: "center",
+      marginBottom: "28px",
       background: `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`,
-      padding: '28px',
-      borderRadius: '16px',
+      padding: "28px",
+      borderRadius: "16px",
       boxShadow: `0 6px 24px ${colors.shadowDark}`,
       border: `1px solid ${colors.highlight}`,
-      position: 'relative'
+      position: "relative",
     },
     searchBox: {
-      position: 'relative',
-      display: 'flex',
-      alignItems: 'center',
-      flex: '1',
-      maxWidth: 'none',
-      width: '100%'
+      position: "relative",
+      display: "flex",
+      alignItems: "center",
+      flex: "1",
+      maxWidth: "none",
+      width: "100%",
     },
     searchInput: {
-      padding: '18px 24px 18px 56px',
+      padding: "18px 24px 18px 48px",
       border: `2px solid ${colors.grayLighter}`,
-      borderRadius: '12px',
-      fontSize: '18px',
-      width: '100%',
+      borderRadius: "12px",
+      fontSize: "18px",
+      width: "100%",
       background: `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`,
-      transition: 'all 0.3s ease',
+      transition: "all 0.3s ease",
       boxShadow: `inset 0 2px 8px rgba(0,0,0,0.1)`,
-      fontWeight: '500'
+      fontWeight: "500",
     },
     searchIcon: {
-      position: 'absolute',
-      left: '24px',
+      position: "absolute",
+      left: "16px",
       color: colors.primary,
-      fontSize: '20px'
+      fontSize: "20px",
     },
     filterSelect: {
-      padding: '18px 24px',
+      padding: "18px 24px",
       border: `2px solid ${colors.grayLighter}`,
-      borderRadius: '12px',
-      fontSize: '18px',
+      borderRadius: "12px",
+      fontSize: "18px",
       background: `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`,
-      cursor: 'pointer',
-      fontWeight: '600',
-      minWidth: '200px',
+      cursor: "pointer",
+      fontWeight: "600",
+      minWidth: "200px",
       boxShadow: `inset 0 2px 8px rgba(0,0,0,0.1)`,
-      transition: 'all 0.3s ease',
-      marginLeft: 'auto'
+      transition: "all 0.3s ease",
+      marginLeft: "auto",
     },
     addButton: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: '12px',
+      display: "flex",
+      alignItems: "center",
+      gap: "12px",
       background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`,
       color: colors.white,
-      border: 'none',
-      borderRadius: '12px',
-      padding: '18px 32px',
-      fontSize: '18px',
-      fontWeight: '700',
-      cursor: 'pointer',
-      transition: 'all 0.3s ease',
+      border: "none",
+      borderRadius: "12px",
+      padding: "18px 32px",
+      fontSize: "18px",
+      fontWeight: "700",
+      cursor: "pointer",
+      transition: "all 0.3s ease",
       boxShadow: `0 4px 16px ${colors.shadowDark}`,
-      textTransform: 'uppercase',
-      letterSpacing: '0.5px'
+      textTransform: "uppercase",
+      letterSpacing: "0.5px",
     },
     modalOverlay: {
-      position: 'fixed',
+      position: "fixed",
       top: 0,
       left: 0,
       right: 0,
       bottom: 0,
-      background: 'rgba(0, 0, 0, 0.8)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      background: "rgba(0, 0, 0, 0.8)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
       zIndex: 1000,
-      padding: '20px',
-      backdropFilter: 'blur(8px)'
+      padding: "20px",
+      backdropFilter: "blur(8px)",
     },
     modalContent: {
       background: `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`,
-      borderRadius: '20px',
+      borderRadius: "20px",
       boxShadow: `0 20px 60px rgba(0, 0, 0, 0.4), 0 8px 32px ${colors.shadowDark}`,
-      width: '100%',
-      maxWidth: '520px',
-      maxHeight: '90vh',
-      overflow: 'auto',
+      width: "100%",
+      maxWidth: "520px",
+      maxHeight: "90vh",
+      overflow: "auto",
       border: `2px solid ${colors.highlight}`,
-      position: 'relative'
+      position: "relative",
     },
     modalHeader: {
-      padding: '28px',
+      padding: "28px",
       borderBottom: `2px solid ${colors.grayLighter}`,
       background: `linear-gradient(135deg, ${colors.primaryLight} 0%, ${colors.primary} 100%)`,
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center'
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
     },
     modalTitle: {
-      fontSize: '26px',
-      fontWeight: '800',
+      fontSize: "26px",
+      fontWeight: "800",
       color: colors.white,
       margin: 0,
-      textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
+      textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
     },
     closeButton: {
-      background: 'none',
-      border: 'none',
+      background: "none",
+      border: "none",
       color: colors.white,
-      cursor: 'pointer',
-      padding: '10px',
-      borderRadius: '8px',
-      transition: 'all 0.3s ease',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
+      cursor: "pointer",
+      padding: "10px",
+      borderRadius: "8px",
+      transition: "all 0.3s ease",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
     },
     modalBody: {
-      padding: '28px'
+      padding: "28px",
     },
     formGroup: {
-      marginBottom: '24px'
+      marginBottom: "24px",
     },
     label: {
-      display: 'block',
-      marginBottom: '10px',
-      fontWeight: '700',
+      display: "block",
+      marginBottom: "10px",
+      fontWeight: "700",
       color: colors.dark,
-      fontSize: '16px',
-      textTransform: 'uppercase',
-      letterSpacing: '0.5px'
+      fontSize: "16px",
+      textTransform: "uppercase",
+      letterSpacing: "0.5px",
     },
     input: {
-      width: '100%',
-      padding: '16px 20px',
+      width: "100%",
+      padding: "16px 20px",
       border: `2px solid ${colors.grayLighter}`,
-      borderRadius: '10px',
-      fontSize: '18px',
+      borderRadius: "10px",
+      fontSize: "18px",
       background: `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`,
-      transition: 'all 0.3s ease',
-      boxSizing: 'border-box',
+      transition: "all 0.3s ease",
+      boxSizing: "border-box",
       boxShadow: `inset 0 2px 8px rgba(0,0,0,0.1)`,
-      fontWeight: '500'
+      fontWeight: "500",
     },
     select: {
-      width: '100%',
-      padding: '16px 20px',
+      width: "100%",
+      padding: "16px 20px",
       border: `2px solid ${colors.grayLighter}`,
-      borderRadius: '10px',
-      fontSize: '18px',
+      borderRadius: "10px",
+      fontSize: "18px",
       background: `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`,
-      cursor: 'pointer',
+      cursor: "pointer",
       boxShadow: `inset 0 2px 8px rgba(0,0,0,0.1)`,
-      fontWeight: '500',
-      transition: 'all 0.3s ease'
+      fontWeight: "500",
+      transition: "all 0.3s ease",
     },
     buttonGroup: {
-      display: 'flex',
-      gap: '16px',
-      justifyContent: 'flex-end',
-      marginTop: '32px'
+      display: "flex",
+      gap: "16px",
+      justifyContent: "flex-end",
+      marginTop: "32px",
     },
     secondaryButton: {
-      padding: '16px 28px',
+      padding: "16px 28px",
       border: `2px solid ${colors.grayLighter}`,
-      borderRadius: '10px',
-      fontSize: '18px',
-      fontWeight: '700',
-      cursor: 'pointer',
+      borderRadius: "10px",
+      fontSize: "18px",
+      fontWeight: "700",
+      cursor: "pointer",
       background: `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`,
       color: colors.grayDark,
-      transition: 'all 0.3s ease',
-      textTransform: 'uppercase',
-      letterSpacing: '0.5px',
-      boxShadow: `0 2px 8px rgba(0,0,0,0.1)`
+      transition: "all 0.3s ease",
+      textTransform: "uppercase",
+      letterSpacing: "0.5px",
+      boxShadow: `0 2px 8px rgba(0,0,0,0.1)`,
     },
     primaryButton: {
-      padding: '16px 28px',
-      border: 'none',
-      borderRadius: '10px',
-      fontSize: '18px',
-      fontWeight: '700',
-      cursor: 'pointer',
+      padding: "16px 28px",
+      border: "none",
+      borderRadius: "10px",
+      fontSize: "18px",
+      fontWeight: "700",
+      cursor: "pointer",
       background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`,
       color: colors.white,
-      transition: 'all 0.3s ease',
-      textTransform: 'uppercase',
-      letterSpacing: '0.5px',
-      boxShadow: `0 4px 16px ${colors.shadowDark}`
+      transition: "all 0.3s ease",
+      textTransform: "uppercase",
+      letterSpacing: "0.5px",
+      boxShadow: `0 4px 16px ${colors.shadowDark}`,
     },
     tableContainer: {
       background: `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`,
-      borderRadius: '16px',
+      borderRadius: "16px",
       boxShadow: `0 6px 24px ${colors.shadowDark}`,
-      overflow: 'hidden',
+      overflow: "hidden",
       border: `1px solid ${colors.highlight}`,
-      position: 'relative'
+      position: "relative",
     },
     table: {
-      width: '100%',
-      borderCollapse: 'collapse'
+      width: "100%",
+      borderCollapse: "collapse",
     },
     tableHeader: {
-      background: `linear-gradient(135deg, ${colors.primaryDark} 0%, ${colors.primary} 100%)`
+      background: `linear-gradient(135deg, ${colors.primaryDark} 0%, ${colors.primary} 100%)`,
     },
     tableHeaderCell: {
-      padding: '22px 28px',
-      textAlign: 'left',
-      fontWeight: '800',
-      fontSize: '16px',
+      padding: "22px 28px",
+      textAlign: "left",
+      fontWeight: "800",
+      fontSize: "16px",
       borderBottom: `3px solid ${colors.secondary}`,
       color: colors.white,
-      textTransform: 'uppercase',
-      letterSpacing: '0.5px'
+      textTransform: "uppercase",
+      letterSpacing: "0.5px",
     },
     tableRow: {
-      transition: 'all 0.3s ease',
+      transition: "all 0.3s ease",
       borderBottom: `1px solid ${colors.grayLighter}`,
-      background: `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`
+      background: `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`,
     },
     tableCell: {
-      padding: '22px 28px',
-      fontSize: '16px',
+      padding: "22px 28px",
+      fontSize: "16px",
       color: colors.dark,
-      fontWeight: '500'
+      fontWeight: "500",
     },
     statusButton: {
-      padding: '12px 24px',
-      border: 'none',
-      borderRadius: '25px',
-      fontSize: '14px',
-      fontWeight: '800',
-      cursor: 'pointer',
-      transition: 'all 0.3s ease',
-      minWidth: '110px',
-      textTransform: 'uppercase',
-      letterSpacing: '0.5px',
-      boxShadow: `0 2px 8px rgba(0,0,0,0.2)`
+      padding: "12px 24px",
+      border: "none",
+      borderRadius: "25px",
+      fontSize: "14px",
+      fontWeight: "800",
+      cursor: "pointer",
+      transition: "all 0.3s ease",
+      minWidth: "110px",
+      textTransform: "uppercase",
+      letterSpacing: "0.5px",
+      boxShadow: `0 2px 8px rgba(0,0,0,0.2)`,
     },
     actionButton: {
-      padding: '12px',
-      border: 'none',
-      borderRadius: '8px',
-      cursor: 'pointer',
-      transition: 'all 0.3s ease',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      padding: "12px",
+      border: "none",
+      borderRadius: "8px",
+      cursor: "pointer",
+      transition: "all 0.3s ease",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
       background: `linear-gradient(135deg, ${colors.primaryLight} 0%, ${colors.primary} 100%)`,
       color: colors.white,
-      boxShadow: `0 2px 8px ${colors.shadowDark}`
+      boxShadow: `0 2px 8px ${colors.shadowDark}`,
     },
     // Pagination Styles
     paginationContainer: {
-      display: 'flex',
-      flexDirection: isMobile ? 'column' : 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: isMobile ? '16px' : '20px 28px',
+      display: "flex",
+      flexDirection: isMobile ? "column" : "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      padding: isMobile ? "16px" : "20px 28px",
       borderTop: `1px solid ${colors.grayLighter}`,
       background: `linear-gradient(135deg, ${colors.light} 0%, ${colors.white} 100%)`,
-      gap: isMobile ? '16px' : '20px'
+      gap: isMobile ? "16px" : "20px",
     },
     itemsPerPageContainer: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: '8px',
-      fontSize: isMobile ? '12px' : '14px'
+      display: "flex",
+      alignItems: "center",
+      gap: "8px",
+      fontSize: isMobile ? "12px" : "14px",
     },
     itemsPerPageSelect: {
-      padding: '6px 12px',
+      padding: "6px 12px",
       border: `1px solid ${colors.grayLighter}`,
-      borderRadius: '6px',
+      borderRadius: "6px",
       background: colors.white,
-      fontSize: isMobile ? '12px' : '14px',
-      fontWeight: '600',
-      cursor: 'pointer'
+      fontSize: isMobile ? "12px" : "14px",
+      fontWeight: "600",
+      cursor: "pointer",
     },
     paginationLabel: {
       color: colors.grayDark,
-      fontWeight: '600',
-      fontSize: isMobile ? '12px' : '14px'
+      fontWeight: "600",
+      fontSize: isMobile ? "12px" : "14px",
     },
     pageInfo: {
       color: colors.grayDark,
-      fontWeight: '600',
-      fontSize: isMobile ? '12px' : '14px',
-      textAlign: 'center'
+      fontWeight: "600",
+      fontSize: isMobile ? "12px" : "14px",
+      textAlign: "center",
     },
     paginationControls: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: '4px'
+      display: "flex",
+      alignItems: "center",
+      gap: "4px",
     },
     paginationButton: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: isMobile ? '8px' : '10px 14px',
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: isMobile ? "8px" : "10px 14px",
       border: `1px solid ${colors.grayLighter}`,
-      borderRadius: '6px',
+      borderRadius: "6px",
       background: colors.white,
       color: colors.grayDark,
-      fontSize: isMobile ? '12px' : '14px',
-      fontWeight: '600',
-      cursor: 'pointer',
-      minWidth: isMobile ? '32px' : '40px',
-      transition: 'all 0.2s ease'
+      fontSize: isMobile ? "12px" : "14px",
+      fontWeight: "600",
+      cursor: "pointer",
+      minWidth: isMobile ? "32px" : "40px",
+      transition: "all 0.2s ease",
     },
     paginationButtonActive: {
       background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`,
       color: colors.white,
-      borderColor: colors.primaryDark
+      borderColor: colors.primaryDark,
     },
     paginationButtonDisabled: {
       background: colors.grayLighter,
       color: colors.grayLight,
-      cursor: 'not-allowed',
-      opacity: 0.6
-    }
+      cursor: "not-allowed",
+      opacity: 0.6,
+    },
   };
 
   // Mobile-specific style overrides
@@ -2131,143 +2153,143 @@ const Units = () => {
       ...baseStyles,
       container: {
         ...baseStyles.container,
-        padding: '16px'
+        padding: "16px",
       },
       header: {
         ...baseStyles.header,
-        padding: '24px 20px'
+        padding: "24px 20px",
       },
       headerContent: {
         ...baseStyles.headerContent,
-        gap: '16px'
+        gap: "16px",
       },
       pageTitle: {
         ...baseStyles.pageTitle,
-        fontSize: '28px'
+        fontSize: "28px",
       },
       pageSubtitle: {
         ...baseStyles.pageSubtitle,
-        fontSize: '16px'
+        fontSize: "16px",
       },
       statsContainer: {
         ...baseStyles.statsContainer,
-        gap: '16px',
-        marginBottom: '20px'
+        gap: "16px",
+        marginBottom: "20px",
       },
       statCard: {
         ...baseStyles.statCard,
-        flex: '1 1 100%',
-        minWidth: 'auto',
-        padding: '20px'
+        flex: "1 1 100%",
+        minWidth: "auto",
+        padding: "20px",
       },
       statNumber: {
         ...baseStyles.statNumber,
-        fontSize: '32px'
+        fontSize: "32px",
       },
       statLabel: {
         ...baseStyles.statLabel,
-        fontSize: '14px'
+        fontSize: "14px",
       },
       controls: {
         ...baseStyles.controls,
-        flexDirection: 'column',
-        gap: '16px',
-        padding: '20px',
-        marginBottom: '20px'
+        flexDirection: "column",
+        gap: "16px",
+        padding: "20px",
+        marginBottom: "20px",
       },
       searchInput: {
         ...baseStyles.searchInput,
-        padding: '16px 20px 16px 48px',
-        fontSize: '16px'
+        padding: "16px 20px 16px 48px",
+        fontSize: "16px",
       },
       searchIcon: {
         ...baseStyles.searchIcon,
-        left: '16px'
+        left: "16px",
       },
       filterSelect: {
         ...baseStyles.filterSelect,
-        padding: '16px 20px',
-        fontSize: '16px',
-        minWidth: 'auto',
-        width: '100%',
-        marginLeft: '0'
+        padding: "16px 20px",
+        fontSize: "16px",
+        minWidth: "auto",
+        width: "100%",
+        marginLeft: "0",
       },
       addButton: {
         ...baseStyles.addButton,
-        padding: '16px 24px',
-        fontSize: '16px',
-        width: '100%',
-        justifyContent: 'center'
+        padding: "16px 24px",
+        fontSize: "16px",
+        width: "100%",
+        justifyContent: "center",
       },
       modalContent: {
         ...baseStyles.modalContent,
-        margin: '10px'
+        margin: "10px",
       },
       modalHeader: {
         ...baseStyles.modalHeader,
-        padding: '20px'
+        padding: "20px",
       },
       modalTitle: {
         ...baseStyles.modalTitle,
-        fontSize: '22px'
+        fontSize: "22px",
       },
       modalBody: {
         ...baseStyles.modalBody,
-        padding: '20px'
+        padding: "20px",
       },
       input: {
         ...baseStyles.input,
-        padding: '14px 16px',
-        fontSize: '16px'
+        padding: "14px 16px",
+        fontSize: "16px",
       },
       select: {
         ...baseStyles.select,
-        padding: '14px 16px',
-        fontSize: '16px'
+        padding: "14px 16px",
+        fontSize: "16px",
       },
       secondaryButton: {
         ...baseStyles.secondaryButton,
-        padding: '14px 20px',
-        fontSize: '16px',
-        flex: '1'
+        padding: "14px 20px",
+        fontSize: "16px",
+        flex: "1",
       },
       primaryButton: {
         ...baseStyles.primaryButton,
-        padding: '14px 20px',
-        fontSize: '16px',
-        flex: '1'
+        padding: "14px 20px",
+        fontSize: "16px",
+        flex: "1",
       },
       buttonGroup: {
         ...baseStyles.buttonGroup,
-        gap: '12px'
+        gap: "12px",
       },
       tableHeaderCell: {
         ...baseStyles.tableHeaderCell,
-        padding: '16px 12px',
-        fontSize: '14px'
+        padding: "16px 12px",
+        fontSize: "14px",
       },
       tableCell: {
         ...baseStyles.tableCell,
-        padding: '16px 12px',
-        fontSize: '14px'
+        padding: "16px 12px",
+        fontSize: "14px",
       },
       statusButton: {
         ...baseStyles.statusButton,
-        padding: '8px 16px',
-        fontSize: '12px',
-        minWidth: '80px'
+        padding: "8px 16px",
+        fontSize: "12px",
+        minWidth: "80px",
       },
       paginationContainer: {
         ...baseStyles.paginationContainer,
-        padding: '12px 16px',
-        gap: '12px'
+        padding: "12px 16px",
+        gap: "12px",
       },
       paginationButton: {
         ...baseStyles.paginationButton,
-        padding: '6px 8px',
-        minWidth: '28px',
-        fontSize: '12px'
-      }
+        padding: "6px 8px",
+        minWidth: "28px",
+        fontSize: "12px",
+      },
     };
   };
 
@@ -2288,8 +2310,12 @@ const Units = () => {
                 setErrorMsg("");
                 setSuccessMsg("");
               }}
-              onMouseOver={(e) => e.target.style.backgroundColor = 'rgba(255,255,255,0.2)'}
-              onMouseOut={(e) => e.target.style.backgroundColor = 'transparent'}
+              onMouseOver={(e) =>
+                (e.target.style.backgroundColor = "rgba(255,255,255,0.2)")
+              }
+              onMouseOut={(e) =>
+                (e.target.style.backgroundColor = "transparent")
+              }
             >
               <X size={16} />
             </button>
@@ -2303,59 +2329,65 @@ const Units = () => {
           <Building2 size={isMobile ? 40 : 52} color={colors.white} />
           <div>
             <h1 style={styles.pageTitle}>UNITS MANAGEMENT</h1>
-            <p style={styles.pageSubtitle}>Manage measurement units and their status across the system</p>
+            <p style={styles.pageSubtitle}>
+              Manage measurement units and their status across the system
+            </p>
           </div>
         </div>
       </div>
 
       {/* Statistics Cards */}
       <div style={styles.statsContainer}>
-        <div 
+        <div
           style={styles.statCard}
           onMouseOver={(e) => {
-            e.currentTarget.style.transform = 'translateY(-4px)';
+            e.currentTarget.style.transform = "translateY(-4px)";
             e.currentTarget.style.boxShadow = `0 12px 32px ${colors.shadowDark}, 0 4px 16px rgba(0,0,0,0.2)`;
           }}
           onMouseOut={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.transform = "translateY(0)";
             e.currentTarget.style.boxShadow = `0 6px 24px ${colors.shadowDark}, 0 2px 8px rgba(0,0,0,0.1)`;
           }}
         >
           <p style={styles.statNumber}>{units.length}</p>
           <p style={styles.statLabel}>TOTAL UNITS</p>
         </div>
-        <div 
+        <div
           style={{
             ...styles.statCard,
-            borderLeft: `4px solid ${colors.success}`
+            borderLeft: `4px solid ${colors.success}`,
           }}
           onMouseOver={(e) => {
-            e.currentTarget.style.transform = 'translateY(-4px)';
+            e.currentTarget.style.transform = "translateY(-4px)";
             e.currentTarget.style.boxShadow = `0 12px 32px ${colors.shadowDark}, 0 4px 16px rgba(0,0,0,0.2)`;
           }}
           onMouseOut={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.transform = "translateY(0)";
             e.currentTarget.style.boxShadow = `0 6px 24px ${colors.shadowDark}, 0 2px 8px rgba(0,0,0,0.1)`;
           }}
         >
-          <p style={{...styles.statNumber, color: colors.success}}>{activeUnits}</p>
+          <p style={{ ...styles.statNumber, color: colors.success }}>
+            {activeUnits}
+          </p>
           <p style={styles.statLabel}>ACTIVE UNITS</p>
         </div>
-        <div 
+        <div
           style={{
             ...styles.statCard,
-            borderLeft: `4px solid ${colors.error}`
+            borderLeft: `4px solid ${colors.error}`,
           }}
           onMouseOver={(e) => {
-            e.currentTarget.style.transform = 'translateY(-4px)';
+            e.currentTarget.style.transform = "translateY(-4px)";
             e.currentTarget.style.boxShadow = `0 12px 32px ${colors.shadowDark}, 0 4px 16px rgba(0,0,0,0.2)`;
           }}
           onMouseOut={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.transform = "translateY(0)";
             e.currentTarget.style.boxShadow = `0 6px 24px ${colors.shadowDark}, 0 2px 8px rgba(0,0,0,0.1)`;
           }}
         >
-          <p style={{...styles.statNumber, color: colors.error}}>{inactiveUnits}</p>
+          <p style={{ ...styles.statNumber, color: colors.error }}>
+            {inactiveUnits}
+          </p>
           <p style={styles.statLabel}>INACTIVE UNITS</p>
         </div>
       </div>
@@ -2368,7 +2400,7 @@ const Units = () => {
             type="text"
             placeholder="Search units by name or ID..."
             value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value)}
             style={styles.searchInput}
             onFocus={(e) => {
               e.target.style.borderColor = colors.primary;
@@ -2380,19 +2412,24 @@ const Units = () => {
             }}
           />
         </div>
-        
-        <select 
-          value={statusFilter} 
-          onChange={e => setStatusFilter(e.target.value)}
+
+        <select
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value)}
           style={{
             ...styles.filterSelect,
-            background: statusFilter === 'All' ? 
-              `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)` :
-              statusFilter === 'Active' ? 
-              `linear-gradient(135deg, ${colors.light} 0%, #d1fae5 100%)` : 
-              `linear-gradient(135deg, ${colors.light} 0%, #fef3c7 100%)`,
-            borderColor: statusFilter === 'All' ? colors.grayLighter :
-                       statusFilter === 'Active' ? colors.success : colors.warning
+            background:
+              statusFilter === "All"
+                ? `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`
+                : statusFilter === "Active"
+                  ? `linear-gradient(135deg, ${colors.light} 0%, #d1fae5 100%)`
+                  : `linear-gradient(135deg, ${colors.light} 0%, #fef3c7 100%)`,
+            borderColor:
+              statusFilter === "All"
+                ? colors.grayLighter
+                : statusFilter === "Active"
+                  ? colors.success
+                  : colors.warning,
           }}
           onFocus={(e) => {
             e.target.style.boxShadow = `inset 0 2px 8px rgba(0,0,0,0.1), 0 0 0 3px ${colors.shadowLight}`;
@@ -2409,20 +2446,20 @@ const Units = () => {
         <button
           style={styles.addButton}
           onMouseOver={(e) => {
-            e.target.style.transform = 'translateY(-2px) scale(1.02)';
+            e.target.style.transform = "translateY(-2px) scale(1.02)";
             e.target.style.boxShadow = `0 8px 24px ${colors.shadowDark}`;
             e.target.style.background = `linear-gradient(135deg, ${colors.secondary} 0%, ${colors.secondaryDark} 100%)`;
           }}
           onMouseOut={(e) => {
-            e.target.style.transform = 'translateY(0) scale(1)';
+            e.target.style.transform = "translateY(0) scale(1)";
             e.target.style.boxShadow = `0 4px 16px ${colors.shadowDark}`;
             e.target.style.background = `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`;
           }}
           onClick={() => {
-            setFormUnit({ 
-              UnitID: getNextUnitID(), 
-              UnitName: "", 
-              Status: "Active" 
+            setFormUnit({
+              UnitID: getNextUnitID(),
+              UnitName: "",
+              Status: "Active",
             });
             setEditingUnitID(null);
             setShowForm(true);
@@ -2440,19 +2477,23 @@ const Units = () => {
               <h3 style={styles.modalTitle}>
                 {editingUnitID ? "EDIT UNIT STATUS" : "ADD NEW UNIT"}
               </h3>
-              <button 
+              <button
                 style={styles.closeButton}
                 onClick={() => {
                   setShowForm(false);
                   setEditingUnitID(null);
                 }}
-                onMouseOver={(e) => e.target.style.backgroundColor = 'rgba(255,255,255,0.2)'}
-                onMouseOut={(e) => e.target.style.backgroundColor = 'transparent'}
+                onMouseOver={(e) =>
+                  (e.target.style.backgroundColor = "rgba(255,255,255,0.2)")
+                }
+                onMouseOut={(e) =>
+                  (e.target.style.backgroundColor = "transparent")
+                }
               >
                 <X size={isMobile ? 24 : 28} />
               </button>
             </div>
-            
+
             <div style={styles.modalBody}>
               <form onSubmit={handleFormSubmit}>
                 {!editingUnitID && (
@@ -2461,7 +2502,9 @@ const Units = () => {
                     <input
                       type="text"
                       value={formUnit.UnitName}
-                      onChange={(e) => setFormUnit({ ...formUnit, UnitName: e.target.value })}
+                      onChange={(e) =>
+                        setFormUnit({ ...formUnit, UnitName: e.target.value })
+                      }
                       placeholder="Enter unit name (e.g., Piece, Kilogram, Liter)"
                       style={styles.input}
                       required
@@ -2480,18 +2523,24 @@ const Units = () => {
                 {editingUnitID && (
                   <div style={styles.formGroup}>
                     <label style={styles.label}>Unit Name</label>
-                    <input 
-                      type="text" 
-                      value={formUnit.UnitName} 
-                      disabled 
+                    <input
+                      type="text"
+                      value={formUnit.UnitName}
+                      disabled
                       style={{
-                        ...styles.input, 
+                        ...styles.input,
                         backgroundColor: colors.grayLighter,
                         color: colors.grayDark,
-                        cursor: 'not-allowed'
-                      }} 
+                        cursor: "not-allowed",
+                      }}
                     />
-                    <p style={{ fontSize: '14px', color: colors.gray, margin: '8px 0 0 0' }}>
+                    <p
+                      style={{
+                        fontSize: "14px",
+                        color: colors.gray,
+                        margin: "8px 0 0 0",
+                      }}
+                    >
                       Unit name cannot be modified after creation
                     </p>
                   </div>
@@ -2501,14 +2550,20 @@ const Units = () => {
                   <label style={styles.label}>Status</label>
                   <select
                     value={formUnit.Status}
-                    onChange={(e) => setFormUnit({ ...formUnit, Status: e.target.value })}
+                    onChange={(e) =>
+                      setFormUnit({ ...formUnit, Status: e.target.value })
+                    }
                     style={{
                       ...styles.select,
-                      background: formUnit.Status === 'Active' ? 
-                        `linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)` : 
-                        `linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)`,
-                      borderColor: formUnit.Status === 'Active' ? colors.success : colors.warning,
-                      color: colors.dark
+                      background:
+                        formUnit.Status === "Active"
+                          ? `linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)`
+                          : `linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)`,
+                      borderColor:
+                        formUnit.Status === "Active"
+                          ? colors.success
+                          : colors.warning,
+                      color: colors.dark,
                     }}
                     onFocus={(e) => {
                       e.target.style.boxShadow = `inset 0 2px 8px rgba(0,0,0,0.1), 0 0 0 3px ${colors.shadowLight}`;
@@ -2523,8 +2578,8 @@ const Units = () => {
                 </div>
 
                 <div style={styles.buttonGroup}>
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     style={styles.secondaryButton}
                     onMouseOver={(e) => {
                       e.target.style.background = `linear-gradient(135deg, ${colors.grayLighter} 0%, ${colors.grayLight} 100%)`;
@@ -2541,16 +2596,16 @@ const Units = () => {
                   >
                     Cancel
                   </button>
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     style={styles.primaryButton}
                     onMouseOver={(e) => {
-                      e.target.style.transform = 'translateY(-2px)';
+                      e.target.style.transform = "translateY(-2px)";
                       e.target.style.background = `linear-gradient(135deg, ${colors.secondary} 0%, ${colors.secondaryDark} 100%)`;
                       e.target.style.boxShadow = `0 8px 24px ${colors.shadowDark}`;
                     }}
                     onMouseOut={(e) => {
-                      e.target.style.transform = 'translateY(0)';
+                      e.target.style.transform = "translateY(0)";
                       e.target.style.background = `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryDark} 100%)`;
                       e.target.style.boxShadow = `0 4px 16px ${colors.shadowDark}`;
                     }}
@@ -2568,59 +2623,102 @@ const Units = () => {
       <div style={styles.tableContainer}>
         {isMobile ? (
           // Mobile view: Card layout
-          <div style={{ padding: '16px' }}>
+          <div style={{ padding: "16px" }}>
             {loading ? (
-              <div style={{textAlign: 'center', padding: '40px'}}>
-                <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px'}}>
-                  <div style={{
-                    width: '28px', 
-                    height: '28px', 
-                    border: '3px solid #f0fdf4', 
-                    borderTop: '3px solid #10b981', 
-                    borderRadius: '50%', 
-                    animation: 'spin 1s linear infinite'
-                  }}></div>
-                  <span style={{fontWeight: '600', color: colors.primary, fontSize: '16px'}}>Loading units...</span>
+              <div style={{ textAlign: "center", padding: "40px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "12px",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "28px",
+                      height: "28px",
+                      border: "3px solid #f0fdf4",
+                      borderTop: "3px solid #10b981",
+                      borderRadius: "50%",
+                      animation: "spin 1s linear infinite",
+                    }}
+                  ></div>
+                  <span
+                    style={{
+                      fontWeight: "600",
+                      color: colors.primary,
+                      fontSize: "16px",
+                    }}
+                  >
+                    Loading units...
+                  </span>
                 </div>
               </div>
             ) : currentItems.length > 0 ? (
               currentItems.map((unit) => (
-                <div 
+                <div
                   key={unit.UnitID}
                   style={{
                     background: `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`,
-                    borderRadius: '12px',
-                    padding: '20px',
-                    marginBottom: '16px',
+                    borderRadius: "12px",
+                    padding: "20px",
+                    marginBottom: "16px",
                     boxShadow: `0 4px 12px ${colors.shadowDark}`,
                     border: `1px solid ${colors.highlight}`,
-                    transition: 'all 0.3s ease'
+                    transition: "all 0.3s ease",
                   }}
                   onMouseOver={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.transform = "translateY(-2px)";
                     e.currentTarget.style.boxShadow = `0 8px 20px ${colors.shadowDark}`;
                   }}
                   onMouseOut={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.transform = "translateY(0)";
                     e.currentTarget.style.boxShadow = `0 4px 12px ${colors.shadowDark}`;
                   }}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "flex-start",
+                      marginBottom: "12px",
+                    }}
+                  >
                     <div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                          marginBottom: "8px",
+                        }}
+                      >
                         <Ruler size={16} color={colors.primary} />
-                        <span style={{ fontSize: '16px', fontWeight: '700', color: colors.primaryDark }}>
+                        <span
+                          style={{
+                            fontSize: "16px",
+                            fontWeight: "700",
+                            color: colors.primaryDark,
+                          }}
+                        >
                           #{unit.UnitID}
                         </span>
                       </div>
-                      <div style={{ fontSize: '18px', fontWeight: '600', color: colors.dark }}>
+                      <div
+                        style={{
+                          fontSize: "18px",
+                          fontWeight: "600",
+                          color: colors.dark,
+                        }}
+                      >
                         {unit.UnitName}
                       </div>
                     </div>
                     <button
                       style={{
                         ...styles.actionButton,
-                        padding: '8px'
+                        padding: "8px",
                       }}
                       onClick={() => handleEditUnit(unit)}
                       title="Edit unit status"
@@ -2628,17 +2726,25 @@ const Units = () => {
                       <Edit size={16} />
                     </button>
                   </div>
-                  
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px' }}>
+
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      marginTop: "16px",
+                    }}
+                  >
                     <button
                       style={{
                         ...styles.statusButton,
-                        background: unit.Status === "Active" ? 
-                          `linear-gradient(135deg, ${colors.success} 0%, #059669 100%)` : 
-                          `linear-gradient(135deg, ${colors.warning} 0%, #d97706 100%)`,
+                        background:
+                          unit.Status === "Active"
+                            ? `linear-gradient(135deg, ${colors.success} 0%, #059669 100%)`
+                            : `linear-gradient(135deg, ${colors.warning} 0%, #d97706 100%)`,
                         color: colors.white,
                         flex: 1,
-                        marginRight: '12px'
+                        marginRight: "12px",
                       }}
                       onClick={() => handleToggleStatus(unit)}
                     >
@@ -2648,11 +2754,35 @@ const Units = () => {
                 </div>
               ))
             ) : (
-              <div style={{textAlign: 'center', padding: '40px', color: colors.gray}}>
-                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px'}}>
+              <div
+                style={{
+                  textAlign: "center",
+                  padding: "40px",
+                  color: colors.gray,
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "16px",
+                  }}
+                >
                   <Ruler size={48} color={colors.grayLight} />
-                  <p style={{fontSize: '18px', margin: 0, fontWeight: '700', color: colors.grayDark}}>No units found</p>
-                  <p style={{fontSize: '14px', margin: 0}}>Try adjusting your search criteria or filters</p>
+                  <p
+                    style={{
+                      fontSize: "18px",
+                      margin: 0,
+                      fontWeight: "700",
+                      color: colors.grayDark,
+                    }}
+                  >
+                    No units found
+                  </p>
+                  <p style={{ fontSize: "14px", margin: 0 }}>
+                    Try adjusting your search criteria or filters
+                  </p>
                 </div>
               </div>
             )}
@@ -2671,39 +2801,75 @@ const Units = () => {
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan={4} style={{...styles.tableCell, textAlign: 'center', padding: '60px'}}>
-                    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px'}}>
-                      <div style={{
-                        width: '28px', 
-                        height: '28px', 
-                        border: '3px solid #f0fdf4', 
-                        borderTop: '3px solid #10b981', 
-                        borderRadius: '50%', 
-                        animation: 'spin 1s linear infinite'
-                      }}></div>
-                      <span style={{fontWeight: '600', color: colors.primary, fontSize: '18px'}}>Loading units...</span>
+                  <td
+                    colSpan={4}
+                    style={{
+                      ...styles.tableCell,
+                      textAlign: "center",
+                      padding: "60px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "12px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: "28px",
+                          height: "28px",
+                          border: "3px solid #f0fdf4",
+                          borderTop: "3px solid #10b981",
+                          borderRadius: "50%",
+                          animation: "spin 1s linear infinite",
+                        }}
+                      ></div>
+                      <span
+                        style={{
+                          fontWeight: "600",
+                          color: colors.primary,
+                          fontSize: "18px",
+                        }}
+                      >
+                        Loading units...
+                      </span>
                     </div>
                   </td>
                 </tr>
               ) : currentItems.length > 0 ? (
                 currentItems.map((unit) => (
-                  <tr 
-                    key={unit.UnitID} 
+                  <tr
+                    key={unit.UnitID}
                     style={styles.tableRow}
                     onMouseOver={(e) => {
                       e.currentTarget.style.background = `linear-gradient(135deg, ${colors.light} 0%, ${colors.grayLighter} 100%)`;
-                      e.currentTarget.style.transform = 'scale(1.01)';
+                      e.currentTarget.style.transform = "scale(1.01)";
                     }}
                     onMouseOut={(e) => {
                       e.currentTarget.style.background = `linear-gradient(135deg, ${colors.white} 0%, ${colors.light} 100%)`;
-                      e.currentTarget.style.transform = 'scale(1)';
+                      e.currentTarget.style.transform = "scale(1)";
                     }}
                   >
-                    <td style={{...styles.tableCell, fontWeight: '700', color: colors.primaryDark}}>
+                    <td
+                      style={{
+                        ...styles.tableCell,
+                        fontWeight: "700",
+                        color: colors.primaryDark,
+                      }}
+                    >
                       #{unit.UnitID}
                     </td>
-                    <td style={{...styles.tableCell, fontWeight: '600'}}>
-                      <div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
+                    <td style={{ ...styles.tableCell, fontWeight: "600" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                        }}
+                      >
                         <Ruler size={20} color={colors.primary} />
                         {unit.UnitName}
                       </div>
@@ -2712,17 +2878,18 @@ const Units = () => {
                       <button
                         style={{
                           ...styles.statusButton,
-                          background: unit.Status === "Active" ? 
-                            `linear-gradient(135deg, ${colors.success} 0%, #059669 100%)` : 
-                            `linear-gradient(135deg, ${colors.warning} 0%, #d97706 100%)`,
-                          color: colors.white
+                          background:
+                            unit.Status === "Active"
+                              ? `linear-gradient(135deg, ${colors.success} 0%, #059669 100%)`
+                              : `linear-gradient(135deg, ${colors.warning} 0%, #d97706 100%)`,
+                          color: colors.white,
                         }}
                         onMouseOver={(e) => {
-                          e.target.style.transform = 'scale(1.1)';
+                          e.target.style.transform = "scale(1.1)";
                           e.target.style.boxShadow = `0 4px 16px rgba(0,0,0,0.3)`;
                         }}
                         onMouseOut={(e) => {
-                          e.target.style.transform = 'scale(1)';
+                          e.target.style.transform = "scale(1)";
                           e.target.style.boxShadow = `0 2px 8px rgba(0,0,0,0.2)`;
                         }}
                         onClick={() => handleToggleStatus(unit)}
@@ -2734,12 +2901,12 @@ const Units = () => {
                       <button
                         style={styles.actionButton}
                         onMouseOver={(e) => {
-                          e.target.style.transform = 'scale(1.1)';
+                          e.target.style.transform = "scale(1.1)";
                           e.target.style.background = `linear-gradient(135deg, ${colors.secondary} 0%, ${colors.secondaryDark} 100%)`;
                           e.target.style.boxShadow = `0 4px 16px ${colors.shadowDark}`;
                         }}
                         onMouseOut={(e) => {
-                          e.target.style.transform = 'scale(1)';
+                          e.target.style.transform = "scale(1)";
                           e.target.style.background = `linear-gradient(135deg, ${colors.primaryLight} 0%, ${colors.primary} 100%)`;
                           e.target.style.boxShadow = `0 2px 8px ${colors.shadowDark}`;
                         }}
@@ -2753,11 +2920,37 @@ const Units = () => {
                 ))
               ) : (
                 <tr>
-                  <td colSpan={4} style={{...styles.tableCell, textAlign: 'center', padding: '60px'}}>
-                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', color: colors.gray}}>
+                  <td
+                    colSpan={4}
+                    style={{
+                      ...styles.tableCell,
+                      textAlign: "center",
+                      padding: "60px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "16px",
+                        color: colors.gray,
+                      }}
+                    >
                       <Ruler size={72} color={colors.grayLight} />
-                      <p style={{fontSize: '20px', margin: 0, fontWeight: '700', color: colors.grayDark}}>No units found</p>
-                      <p style={{fontSize: '16px', margin: 0}}>Try adjusting your search criteria or filters</p>
+                      <p
+                        style={{
+                          fontSize: "20px",
+                          margin: 0,
+                          fontWeight: "700",
+                          color: colors.grayDark,
+                        }}
+                      >
+                        No units found
+                      </p>
+                      <p style={{ fontSize: "16px", margin: 0 }}>
+                        Try adjusting your search criteria or filters
+                      </p>
                     </div>
                   </td>
                 </tr>
@@ -2767,9 +2960,7 @@ const Units = () => {
         )}
 
         {/* Pagination Controls */}
-        {filteredUnits.length > 0 && (
-          <PaginationControls />
-        )}
+        {filteredUnits.length > 0 && <PaginationControls />}
       </div>
 
       <style>{`

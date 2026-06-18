@@ -541,7 +541,7 @@ const Overview = () => {
     },
     searchIcon: {
       position: 'absolute',
-      left: isMobile ? '12px' : '20px',
+      left: isMobile ? '12px' : '5px',
       color: colors.primary,
       fontSize: '18px'
     },
