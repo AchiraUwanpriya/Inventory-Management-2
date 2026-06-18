@@ -2170,7 +2170,7 @@ const GoodsReceivedNotes = () => {
           <p style={{...styles.statNumber, color: colors.success}}>{inTransactions}</p>
           <p style={styles.statLabel}>STOCK IN</p>
         </div>
-        <div 
+        {/* <div 
           style={{
             ...styles.statCard,
             borderLeft: `4px solid ${colors.error}`
@@ -2186,7 +2186,7 @@ const GoodsReceivedNotes = () => {
         >
           <p style={{...styles.statNumber, color: colors.error}}>{outTransactions}</p>
           <p style={styles.statLabel}>STOCK OUT</p>
-        </div>
+        </div> */}
       </div>
 
       {/* Controls - Search, Filter and Add button */}

@@ -2153,7 +2153,7 @@ const DMG = () => {
           <p style={styles.statNumber}>{totalTransactions}</p>
           <p style={styles.statLabel}>TOTAL DAMAGES</p>
         </div>
-        <div 
+        {/* <div 
           style={{
             ...styles.statCard,
             borderLeft: `4px solid ${colors.success}`
@@ -2169,7 +2169,7 @@ const DMG = () => {
         >
           <p style={{...styles.statNumber, color: colors.success}}>{inTransactions}</p>
           <p style={styles.statLabel}>STOCK IN</p>
-        </div>
+        </div> */}
         <div 
           style={{
             ...styles.statCard,
