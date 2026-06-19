@@ -1452,7 +1452,7 @@ const SRN = () => {
       ...formTransaction,
       TransactionID: formTransaction.TransactionID,
       Quantity: Number(formTransaction.Quantity),
-      TransactionType: "OUT",
+      TransactionType: "IN",
       OrderItemType: "SO",
       FormTypeID: 2,
       TransactiionDate:
@@ -1586,7 +1586,7 @@ const SRN = () => {
         <div style={styles.pageInfo}>
           Showing {indexOfFirstItem + 1}-
           {Math.min(indexOfLastItem, filteredTransactions.length)} of{" "}
-          {filteredTransactions.length} Stock Return Notes
+          {filteredTransactions.length} Sales Return Notes
         </div>
 
         {/* Pagination controls */}
@@ -2139,7 +2139,7 @@ const SRN = () => {
         <div
           style={{ textAlign: "center", padding: "40px", color: colors.gray }}
         >
-          Loading Stock Return Notes...
+          Loading Sales Return Notes...
         </div>
       </div>
     );
@@ -2178,7 +2178,7 @@ const SRN = () => {
         <div style={styles.headerContent}>
           <Truck size={isMobile ? 36 : 52} color={colors.white} />
           <div style={{ flex: 1 }}>
-            <h1 style={styles.pageTitle}>STOCK RETURN NOTES (SRN)</h1>
+            <h1 style={styles.pageTitle}>SALES RETURN NOTES (SRN)</h1>
             <p style={styles.pageSubtitle}>
               Manage and track goods received into inventory
             </p>
@@ -2208,7 +2208,7 @@ const SRN = () => {
           <p style={styles.statNumber}>{totalTransactions}</p>
           <p style={styles.statLabel}>TOTAL SRNS</p>
         </div>
-        {/* <div 
+        <div 
           style={{
             ...styles.statCard,
             borderLeft: `4px solid ${colors.success}`
@@ -2218,14 +2218,14 @@ const SRN = () => {
             e.currentTarget.style.boxShadow = `0 12px 32px ${colors.shadowDark}, 0 4px 16px rgba(0,0,0,0.2)`;
           }}
           onMouseOut={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.transform = "translateY(0)";
             e.currentTarget.style.boxShadow = `0 6px 24px ${colors.shadowDark}, 0 2px 8px rgba(0,0,0,0.1)`;
           }}
         >
           <p style={{...styles.statNumber, color: colors.success}}>{inTransactions}</p>
           <p style={styles.statLabel}>STOCK IN</p>
-        </div> */}
-        <div
+        </div>
+        {/* <div
           style={{
             ...styles.statCard,
             borderLeft: `4px solid ${colors.error}`,
@@ -2243,7 +2243,7 @@ const SRN = () => {
             {outTransactions}
           </p>
           <p style={styles.statLabel}>STOCK OUT</p>
-        </div>
+        </div> */}
       </div>
 
       {/* Controls - Search, Filter and Add button */}
@@ -2380,8 +2380,8 @@ const SRN = () => {
             <div style={styles.modalHeader}>
               <h3 style={styles.modalTitle}>
                 {editingTransactionID
-                  ? "EDIT STOCK RETURN NOTE"
-                  : "ADD NEW STOCK RETURN NOTE"}
+                  ? "EDIT SALES RETURN NOTE"
+                  : "ADD NEW SALES RETURN NOTE"}
               </h3>
               <button
                 style={styles.closeButton}
@@ -2664,7 +2664,7 @@ const SRN = () => {
                         color: colors.grayDark,
                       }}
                     >
-                      No Stock Return Notes found
+                      No Sales Return Notes found
                     </p>
                     <p
                       style={{
